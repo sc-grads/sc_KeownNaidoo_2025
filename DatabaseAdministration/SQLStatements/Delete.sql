@@ -9,4 +9,4 @@ DELETE FROM friends;
 
 */
 
-DELETE FROM friends WHERE id = 10;
+DELETE FROM friends WHERE ID=10;

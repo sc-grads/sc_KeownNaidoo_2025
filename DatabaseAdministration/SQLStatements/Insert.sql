@@ -1,3 +1,6 @@
+
+/* This is an Insert Statement to add (INSERT) data into the Table named friends*/
+
 INSERT INTO friends (id, name, age) VALUES (1, 'Alice', 25);
 INSERT INTO friends (id, name, age) VALUES (2, 'Bob', 28);
 INSERT INTO friends (id, name, age) VALUES (3, 'Charlie', 22);
