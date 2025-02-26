@@ -39,3 +39,7 @@ jobs:
             echo "Running SQL script: $file"
             sudo mysql --user=root --password=root my_local_db < "$file"
           done
+      - name: Verify Database Exists
+        run: |
+          sudo mysql --user=root --password=root -e "SHOW DATABASES;"
+
