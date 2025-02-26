@@ -34,7 +34,7 @@ jobs:
 
       - name: Run Table Creation Scripts (DDL)
         run: |
-          for file in DatabaseAdministration/Testing_workflow/schema/*.sql; do
+          for file in DatabaseAdministration/Testing_workflow/test.sql; do
             echo "Creating tables from $file"
             sudo mysql --user=root --password=root my_local_db < "$file" || exit 1
           done
