@@ -1,8 +1,10 @@
 name: SQL Linting Auto Fixing  # 🏷️ SQL Linting and Auto-Fix Workflow
 
 on:
-  push:  # 🔄 Runs when code is pushed to the repository.
-  pull_request:  # 🔄 Runs on pull request updates.
+  workflow_run:
+    workflows: ["SQL Linting"]
+    types:
+      - completed
 
 jobs:
   sql-lint:
