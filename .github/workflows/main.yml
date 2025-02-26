@@ -15,7 +15,7 @@ jobs:
         with:
           mysql version: '8.0'  # Set MySQL version (optional, default: latest)
           mysql root password: 'root'  # Root password
-          test dir: 'sql_tests/'  # Directory containing SQL test scripts
+          test dir: 'DatabaseAdministration/SQLStatements'  # Directory containing SQL test scripts
           debug: 1  # Enable debugging (optional)
 
       - name: Run SQL Tests
