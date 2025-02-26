@@ -32,6 +32,9 @@ jobs:
         run: |
           sudo mysql --user=root --password=root -e "CREATE DATABASE IF NOT EXISTS my_local_db;"
           sudo mysql --user=root --password=root -e "SHOW DATABASES;"
+          
+      - name: Create SQL Scripts Directory (if missing)
+        run: mkdir -p sql_scripts
 
       - name: Run SQL Scripts
         run: |
