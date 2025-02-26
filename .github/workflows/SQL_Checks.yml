@@ -1,6 +1,8 @@
 name: SQL Syntax Check
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
   sql-lint:
@@ -8,17 +10,26 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        
+      - name: Install MySQL
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mysql-server mysql-client
+
+      - name: Start MySQL Service
+        run: |
+          sudo systemctl start mysql
+          sudo systemctl status mysql || true  # Show status for debugging
 
       - name: Install SQLFluff
         run: pip install sqlfluff
 
       - name: Lint SQL files
-        run: sqlfluff lint DatabaseAdministration/Testing_workflow --dialect mysql # Change dialect as needed
+        run: sqlfluff lint DatabaseAdministration/Testing_workflow --dialect mysql # Change dialect if needed
 
       - name: Check SQL syntax using MySQL
         run: |
-          sudo apt-get install -y mysql-client
-          for file in path/to/sql/files/*.sql; do
+          for file in DatabaseAdministration/Testing_workflow/*.sql; do
             echo "Checking syntax for $file"
-            mysql --user=root --password=root --host=127.0.0.1 --execute="source $file" || exit 1
+            sudo mysql --user=root --password=root my_local_db < "$file" || exit 1
           done
