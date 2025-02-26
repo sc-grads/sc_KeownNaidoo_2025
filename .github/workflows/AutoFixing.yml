@@ -1,4 +1,4 @@
-name: SQL Linting  # 🏷️ SQL Linting and Auto-Fix Workflow
+name: SQL Linting Auto Fixing  # 🏷️ SQL Linting and Auto-Fix Workflow
 
 on:
   push:  # 🔄 Runs when code is pushed to the repository.
