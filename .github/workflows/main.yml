@@ -31,14 +31,11 @@ jobs:
       - name: Create Database
         run: |
           sudo mysql --user=root --password=root -e "CREATE DATABASE IF NOT EXISTS my_local_db;"
-          sudo mysql --user=root --password=root -e "SHOW DATABASES;"
-          
-      - name: Create SQL Scripts Directory (if missing)
-        run: mkdir -p sql_scripts
+          sudo mysql --user=root --password=root -e "SHOW DATABASES;
 
       - name: Run SQL Scripts
         run: |
-          for file in sql_scripts/*.sql; do
+          for file in DatabaseAdministration/Testing_workflow; do
             echo "Running SQL script: $file"
             sudo mysql --user=root --password=root my_local_db < "$file"
           done
