@@ -2,7 +2,7 @@ name: Setup MySQL and Create Database
 
 on:
   workflow_run:
-    workflows: ["SQL Linting"]
+    workflows: ["SQL Syntax Check"]
     types:
       - completed
 
