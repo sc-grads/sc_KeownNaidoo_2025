@@ -32,13 +32,6 @@ jobs:
       - name: Lint SQL files
         run: sqlfluff lint DatabaseAdministration/Testing_workflow --dialect mysql
 
-      - name: Run Table Creation Scripts (DDL)
-        run: |
-          for file in DatabaseAdministration/Testing_workflow/test.sql; do
-            echo "Creating tables from $file"
-            sudo mysql --user=root --password=root my_local_db < "$file" || exit 1
-          done
-          
       - name: Check SQL syntax using MySQL
         run: |
           for file in DatabaseAdministration/Testing_workflow/*.sql; do
