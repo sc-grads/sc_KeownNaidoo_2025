@@ -1,10 +1,10 @@
 name: Setup MySQL and Create Database
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:  # Allows manual trigger
+  workflow_run:
+    workflows: ["SQL Linting"]
+    types:
+      - completed
 
 jobs:
   setup-mysql:
