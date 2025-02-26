@@ -1,0 +1,22 @@
+name: Setup MySQL Locally
+
+on:
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  setup-mysql:
+    runs-on: ubuntu-latest  # Runs in a Linux environment
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start MySQL Server
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          mysql root password: root
+          mysql database: my_local_db  # Creates the database
+
+      - name: Connect to MySQL and Verify
+        run: |
+          sudo apt-get install -y mysql-client
+          mysql --host=127.0.0.1 --user=root --password=root -e "SHOW DATABASES;"
