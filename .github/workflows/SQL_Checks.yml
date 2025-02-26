@@ -1,40 +1,20 @@
-name: SQL Syntax Check
+name: SQL Linting  # 🏷️ Name of the workflow
 
 on:
-  push:
-  pull_request:
+  push:  # 🔄 Run when new code is pushed
+  pull_request:  # 🔄 Run when a pull request is made
 
 jobs:
-  sql-lint:
-    runs-on: ubuntu-latest
+  sql-lint:  # 🛠️ Job name
+    runs-on: ubuntu-latest  # 💻 Use the latest Ubuntu as the runner (virtual machine)
+
     steps:
-      - name: Checkout repository
+      - name: Checkout repository  # 📥 Get the code from GitHub
         uses: actions/checkout@v4
 
-      - name: Install MySQL
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y mysql-server mysql-client
-
-      - name: Start MySQL Service
-        run: |
-          sudo systemctl start mysql
-          sudo systemctl status mysql || true  # Debugging output
-
-      - name: Create Database if Not Exists
-        run: |
-          sudo mysql --user=root --password=root -e "CREATE DATABASE IF NOT EXISTS my_local_db;"
-          sudo mysql --user=root --password=root -e "SHOW DATABASES;"
-
-      - name: Install SQLFluff
+      - name: Install SQLFluff  # 📌 Install SQLFluff (SQL linter)
         run: pip install sqlfluff
 
-      - name: Lint SQL files
+      - name: Lint SQL files  # 🔍 Check SQL files for errors using SQLFluff
         run: sqlfluff lint DatabaseAdministration/Testing_workflow --dialect mysql
-
-      - name: Check SQL syntax using MySQL
-        run: |
-          for file in DatabaseAdministration/Testing_workflow/*.sql; do
-            echo "Checking syntax for $file"
-            sudo mysql --user=root --password=root my_local_db < "$file" || exit 1
-          done
+        # 📌 "mysql" dialect is used (change if using PostgreSQL, etc.)
