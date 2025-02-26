@@ -20,10 +20,11 @@ jobs:
 
       - name: Auto-fix SQL files if issues are found  # 🔧 Auto-fix lint errors
         run: |
-          sqlfluff fix DatabaseAdministration/Testing_workflow --dialect mysql
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add DatabaseAdministration/Testing_workflow/*.sql
-          git commit -m "Auto-fix SQL formatting issues with SQLFluff" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git HEAD:main
-        # ✅ Uses GitHub PAT to push changes to the repository
+          if sqlfluff fix DatabaseAdministration/Testing_workflow --dialect mysql; then
+            echo "SQLFluff fixed the issues successfully!"
+          else
+            echo "SQLFluff could not fix all issues." 
+            exit 1  # Fail the workflow if the fix does not work
+          fi
+
+      
