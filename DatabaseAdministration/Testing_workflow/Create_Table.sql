@@ -3,5 +3,5 @@ CREATE TABLE users (
     first_name VARCHAR(50),
     email VARCHAR(100) UNIQUE,
     age INT,
-     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
