@@ -1,34 +1,29 @@
-name: SQL checks  # 🏷️ This is the name of the workflow. It will appear in the GitHub Actions tab.
+name: SQL Linting  # 🏷️ SQL Linting and Auto-Fix Workflow
 
 on:
-  push:  # 🔄 This workflow runs when code is pushed to the repository.
-  pull_request:  # 🔄 This workflow also runs when a pull request is created or updated.
+  push:  # 🔄 Runs when code is pushed to the repository.
+  pull_request:  # 🔄 Runs on pull request updates.
 
 jobs:
-  sql-lint:  # 🛠️ Job name (this defines a set of actions to be executed)
-    runs-on: ubuntu-latest  # 💻 This job runs on an Ubuntu virtual machine (GitHub-hosted runner).
+  sql-lint:
+    runs-on: ubuntu-latest  # 💻 Uses Ubuntu as the runner.
 
     steps:
-      - name: Checkout repository  # 📥 Step to fetch the latest code from GitHub
+      - name: Checkout repository  # 📥 Fetch latest code
         uses: actions/checkout@v4
-        # ✅ Ensures SQL files are available for linting.
 
-      - name: Install SQLFluff  # 📌 Step to install SQLFluff (SQL linter)
+      - name: Install SQLFluff  # 📌 Install SQLFluff for linting
         run: pip install sqlfluff
-        # ✅ Installs SQLFluff, which checks SQL syntax and formatting.
 
-      - name: Lint SQL files  # 🔍 Step to check SQL files for errors
+      - name: Lint SQL files  # 🔍 Run SQL linting
         run: sqlfluff lint DatabaseAdministration/Testing_workflow --dialect mysql
-        # ✅ Runs SQLFluff on the specified folder.
-        # ✅ Uses the "mysql" dialect (change to "postgres", "sqlite", etc., if needed).
 
-      - name: Auto-fix SQL files if issues are found  # 🔧 Step to automatically fix SQL errors
+      - name: Auto-fix SQL files if issues are found  # 🔧 Auto-fix lint errors
         run: |
           sqlfluff fix DatabaseAdministration/Testing_workflow --dialect mysql
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add DatabaseAdministration/SQL_Tutorial/SQL_Statements/*.sql
+          git add DatabaseAdministration/Testing_workflow/*.sql
           git commit -m "Auto-fix SQL formatting issues with SQLFluff" || echo "No changes to commit"
-          git push
-        # ✅ Runs SQLFluff's "fix" mode to auto-correct issues.
-        # ✅ Commits and pushes fixed SQL files back to the repository.
+          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git HEAD:main
+        # ✅ Uses GitHub PAT to push changes to the repository
