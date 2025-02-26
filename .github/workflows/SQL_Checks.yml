@@ -19,11 +19,3 @@ jobs:
         run: sqlfluff lint DatabaseAdministration/Testing_workflow --dialect mysql
         # 📌 "mysql" dialect is used (change if using PostgreSQL, etc.)
         
-      - name: Auto-fix SQL files if issues are found  # 🔧 Auto-fix lint errors
-        run: |
-          if sqlfluff fix DatabaseAdministration/Testing_workflow --dialect mysql; then
-            echo "SQLFluff fixed the issues successfully!"
-          else
-            echo "SQLFluff could not fix all issues." 
-            exit 1  # Fail the workflow if the fix does not work
-          fi
