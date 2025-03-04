@@ -1,5 +1,5 @@
 print ("Hello world")
-x = 25
-y = 30
+x = 1
+y = 6
 z = x+y
 print("x+y=",z)
