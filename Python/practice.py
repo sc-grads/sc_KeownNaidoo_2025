@@ -1,14 +1,13 @@
 print("\n ////////////////////////////////////////////////////\n")
 print("\t Expressions ")
 print("\n ////////////////////////////////////////////////////\n")
-print ("Hello world")
-x = 1
-y = 6
-z = x+y
-print("x+y=",z)
-a= 2
-a=+4
-print("\n",a)
+hr = input("Enter your hours worked: ")
+rate = 20
+pay = int(hr) * rate
+print("Total pay R", pay) 
+
+
+print("\n")
 print("\n ////////////////////////////////////////////////////\n")
 print("\t Collecting User Input")
 print("\n ////////////////////////////////////////////////////\n")
