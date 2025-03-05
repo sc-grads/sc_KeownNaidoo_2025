@@ -43,3 +43,20 @@ elif pay >500:
     print("Very Big")
 else :
     print("wrong value")
+
+print("\n")
+print("\n ////////////////////////////////////////////////////\n")
+print("\t Loops")
+print("\n ////////////////////////////////////////////////////\n")
+
+x = 0
+while x<10:
+    print(x)
+    x+=1
+print("While loop done")
+
+for i in [1,2,3,4,5,6,7,8]:
+    print(i)
+
+print("for loop done")
+
