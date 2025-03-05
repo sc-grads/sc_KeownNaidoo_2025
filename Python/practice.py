@@ -1,21 +1,20 @@
 print("\n ////////////////////////////////////////////////////\n")
 print("\t Expressions ")
 print("\n ////////////////////////////////////////////////////\n")
+
+def get_pay(rate, hours):
+    return rate * hours
+
+rate = 20
+
 try:
-    hr = input("Enter your hours worked: ")
-    rate = 20
-    pay = int(hr) * rate
-    print("Total pay R", pay) 
-except:
-    hr = -1
-    
-if hr == -1:
+    hr = int(input("Enter your hours worked: "))
+    pay = get_pay(rate, hr)
+    print("Total pay: R", pay)
+except ValueError:
     print("Error!!!!!!!!!!!!!")
     pay = -1
-else:
-    rate = 20
-    pay = int(hr) * rate
-    print("Total pay R", pay) 
+
 
 
 print("\n")
