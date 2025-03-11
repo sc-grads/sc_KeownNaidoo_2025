@@ -11,6 +11,9 @@ FOREIGN KEY (store_id) REFERENCES sales.storeNew (store_id)
 CREATE TABLE [AdventureWorks2022].[sales].[storeNew](
 store_id INT NOT NULL,
 sales INT
-)
+)          /*** SET store_id as primary key using the design option****/
 
-/*** SET store_id as primary key using the design option****/
+SELECT [BusinessEntityID],[FirstName],[LastName],[Title]
+INTO #TempPersonTable
+FROM [Person].[Person]
+WHERE Title ='mr.';
