@@ -66,6 +66,24 @@ select * from dbo.fnGetEmp()
 
 go
 
+CREATE FUNCTION fnGetMulEmp()
+returns @emp table(
+	empid int,
+	fname nvarchar(50),
+	salary int
+)
+as
+begin
+Insert into @Emp Select e.EmpID,e.FirstName,e.Salary from FunctionEmployee e;
+--Now update salary of first employee
+ update @Emp set Salary=25000 where EmpID=1;
+--It will update only in @Emp table not in Original Employee table
+return
+end 
+GO
+select * from dbo.fnGetMulEmp()
+
+
 
 
 
