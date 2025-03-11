@@ -13,7 +13,27 @@ store_id INT NOT NULL,
 sales INT
 )          /*** SET store_id as primary key using the design option****/
 
+/*** Method one****/
 SELECT [BusinessEntityID],[FirstName],[LastName],[Title]
-INTO #TempPersonTable
+INTO  /*** This creates the temp table****/
+FROM [Person].[Person]
+WHERE Title ='mr.';
+
+SELECT [BusinessEntityID],[FirstName],[LastName],[Title]
+FROM #TempPersonTable
+
+DROP TABLE #TempPersonTable;
+
+/*** Method 2****/
+
+CREATE TABLE #TempPersonTable (
+[BusinessEntityID] INT,
+[FirstName] NVARCHAR(50),
+[LastName] NVARCHAR(50),
+[Title] NVARCHAR(50)
+)
+
+INSERT INTO #TempPersonTable
+SELECT [BusinessEntityID],[FirstName],[LastName],[Title]
 FROM [Person].[Person]
 WHERE Title ='mr.';
