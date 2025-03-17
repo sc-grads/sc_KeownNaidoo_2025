@@ -6,21 +6,25 @@ jobs:
   notify-teams:
     runs-on: ubuntu-latest
     steps:
+      - name: Get latest commit message
+        id: get_commit_message
+        run: echo "commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+        shell: bash
+
       - uses: neonidian/teams-notify-build-status@v3
         with:
-          webhookUrl:  # Send notifications to multiple MS Teams channels
-            ${{ secrets.WEBHOOK_URL }}
-          title: Keown Nadioo Pull Request  # Title header
-          titleBackgroundColor: green  # Background color
+          webhookUrl: ${{ secrets.WEBHOOK_URL }}
+          title: Keown Nadioo Pull Request
+          titleBackgroundColor: green
           message: |
             Pull Request Details:
             - **Title:** ${{ github.event.pull_request.title }}
             - **Description:** ${{ github.event.pull_request.body }}
+            - **Latest Commit Message:** ${{ env.commit_message }}
             - **Author:** ${{ github.actor }}
             - **PR URL:** ${{ github.event.pull_request.html_url }}
             - **Branch:** ${{ github.event.pull_request.head.ref }}
-            - ${{ github.event.pull_request.head.sha }}
-          
+
         env:  
           SHOULD_DISPLAY_ACTOR_LABEL: true
           SHOULD_DISPLAY_VIEW_RUN_BUTTON: true
