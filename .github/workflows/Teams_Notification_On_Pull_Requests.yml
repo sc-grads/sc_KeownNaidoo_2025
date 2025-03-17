@@ -10,7 +10,7 @@ jobs:
         with:
           webhookUrl:  # Send notifications to multiple MS Teams channels
             ${{ secrets.WEBHOOK_URL }}
-          title: "** Keown Nadioo Pull Request ** " # Title header
+          title: Keown Nadioo Pull Request  # Title header
           titleBackgroundColor: green  # Background color
           message: |
             Pull Request Details:
