@@ -19,6 +19,7 @@ jobs:
             - **Author:** ${{ github.actor }}
             - **PR URL:** ${{ github.event.pull_request.html_url }}
             - **Branch:** ${{ github.event.pull_request.head.ref }}
+            - ${{ github.event.pull_request.base.sha }}
           
         env:  
           SHOULD_DISPLAY_ACTOR_LABEL: true
