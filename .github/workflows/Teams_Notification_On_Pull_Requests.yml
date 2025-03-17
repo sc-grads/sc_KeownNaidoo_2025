@@ -1,0 +1,14 @@
+name: Notify Teams on Pull Request
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  notify-teams:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: neonidian/teams-notify-build-status@v3
+        with:
+          webhookUrl: ${{ secrets.WEBHOOK_URL }}
+          message: "🚀 A new Pull Request has been opened!\nTitle: ${{ github.event.pull_request.title }}\nBy: ${{ github.actor }}\n🔗 [View PR](${{ github.event.pull_request.html_url }})"
