@@ -1,5 +1,3 @@
-name: Notify Teams on Pull Request
-
 on:
   pull_request:
     types: [opened, reopened]
@@ -8,24 +6,16 @@ jobs:
   notify-teams:
     runs-on: ubuntu-latest
     steps:
-      # Step to fetch the commit message
-      - name: Get Commit Message
-        id: commit_message
-        run: |
-          COMMIT_MSG=$(git log -1 --pretty=%B)
-          echo "Commit Message: $COMMIT_MSG"
-          echo "::set-output name=commit_message::$COMMIT_MSG"
-
-      # Send notification to MS Teams
       - uses: neonidian/teams-notify-build-status@v3
         with:
-          webhookUrl: ${{ secrets.WEBHOOK_URL }}  # Send notification to MS Teams
-          title: KeownmNadioo Pull Request  # Title header
+          webhookUrl:  # Send notifications to multiple MS Teams channels
+            ${{ secrets.WEBHOOK_URL }}
+          title: Keown Nadioo Pull Request  # Title header
           titleBackgroundColor: green  # Background color
           message: >-
             Pull Request Details:
             - **Title:** ${{ github.event.pull_request.title }}
-            - **Commit Message:** ${{ steps.commit_message.outputs.commit_message }}
+            - **Commit Message:** ${{ github.event.head_commit.message }}
             - **Author:** ${{ github.actor }}
             - **PR URL:** ${{ github.event.pull_request.html_url }}
             - **Branch:** ${{ github.event.pull_request.head.ref }}
