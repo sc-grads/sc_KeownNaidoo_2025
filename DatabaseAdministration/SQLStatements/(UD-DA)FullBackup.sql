@@ -16,12 +16,12 @@ insert into SQLBackupRestoreTest1 (ID,loginname) values (4, 'test4')
 insert into SQLBackupRestoreTest1 (ID,loginname) values (5, 'test5')
 -- FULL Back up 5 rows
 
-BACKUP DATABASE [master] TO  DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\master.bak'
-WITH NOFORMAT, NOINIT,  NAME = N'master-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+BACKUP DATABASE [AdventureWorks2022] TO  DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\master.bak'
+WITH NOFORMAT, NOINIT,  NAME = N'AdventureWorks2022-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
 GO
 
 USE [master]
-RESTORE DATABASE [master] FROM  DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\master.bak' 
+RESTORE DATABASE [AdventureWorks2022] FROM  DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\master.bak' 
 WITH  FILE = 1,  NOUNLOAD,  STATS = 5
 
 GO
