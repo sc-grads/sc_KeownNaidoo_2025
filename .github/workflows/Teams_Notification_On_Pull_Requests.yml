@@ -15,7 +15,7 @@ jobs:
           message: |
             Pull Request Details:
             - **Title:** ${{ github.event.pull_request.title }}
-            - **Commit Message:** ${{ github.event.pull_request.head_commit.message }}
+            - **Description:** ${{ github.event.pull_request.body }}
             - **Author:** ${{ github.actor }}
             - **PR URL:** ${{ github.event.pull_request.html_url }}
             - **Branch:** ${{ github.event.pull_request.head.ref }}
