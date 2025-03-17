@@ -12,10 +12,10 @@ jobs:
             ${{ secrets.WEBHOOK_URL }}
           title: Keown Nadioo Pull Request  # Title header
           titleBackgroundColor: green  # Background color
-          message: >-
-            Pull Request Details: \n
+          message: |
+            Pull Request Details:
             - **Title:** ${{ github.event.pull_request.title }}
-            - **Commit Message:** ${{ github.event.head_commit.message }}
+            - **Commit Message:** ${{ github.event.pull_request.head_commit.message }}
             - **Author:** ${{ github.actor }}
             - **PR URL:** ${{ github.event.pull_request.html_url }}
             - **Branch:** ${{ github.event.pull_request.head.ref }}
