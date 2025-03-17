@@ -1,4 +1,4 @@
----COMMENTS
+
 CREATE TABLE [AdventureWorks2022].[sales].[visits](
 visits_id INT PRIMARY KEY IDENTITY (1,1), 
 first_name VARCHAR(50) NOT NULL,
