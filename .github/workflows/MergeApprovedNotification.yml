@@ -13,7 +13,7 @@ jobs:
         uses: neonidian/teams-notify-build-status@v3
         with:
           webhookUrl: ${{ secrets.WEBHOOK_URL }}
-          title: "Pull Request Merged 🎉"
+          title: "Keown Naidoo - Pull Request Merged 🎉"
           titleBackgroundColor: "blue"
           message: |
             **Keown Naidoo - A pull request has been merged! 🚀**
