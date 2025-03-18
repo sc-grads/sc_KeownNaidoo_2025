@@ -13,12 +13,14 @@ jobs:
           title: Keown Nadioo Pull Request  # Title header
           titleBackgroundColor: green  # Background color
           message: |
-            Pull Request Details:
-            - **Title:** ${{ github.event.pull_request.title }}
-            - **Description:** ${{ github.event.pull_request.body }}
-            - **Author:** ${{ github.actor }}
-            - **PR URL:** ${{ github.event.pull_request.html_url }}
-            - **Branch:** ${{ github.event.pull_request.head.ref }}
+           message: |
+            **Pull Request Notification**
+            - 🏷 **Title:** ${{ github.event.pull_request.title }}
+            - 📝 **Description:** ${{ github.event.pull_request.body || 'No description provided' }}
+            - 👤 **Author:** ${{ github.actor }}
+            - 🔗 [View PR](${{ github.event.pull_request.html_url }})
+            - 🌿 **Branch:** ${{ github.event.pull_request.head.ref }}
+
           
         env:  
           SHOULD_DISPLAY_ACTOR_LABEL: true
