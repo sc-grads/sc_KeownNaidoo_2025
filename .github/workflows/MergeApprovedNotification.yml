@@ -16,7 +16,7 @@ jobs:
           title: "Pull Request Merged 🎉"
           titleBackgroundColor: "blue"
           message: |
-            **A pull request has been merged! 🚀**
+            **Keown Naidoo - A pull request has been merged! 🚀**
             - 🏷 **Title:** ${{ github.event.pull_request.title }}
             - 📝 **Description:** ${{ github.event.pull_request.body || 'No description provided' }}
             - 👤 **Author:** ${{ github.event.pull_request.user.login }}
