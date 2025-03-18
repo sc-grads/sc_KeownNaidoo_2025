@@ -7,6 +7,11 @@ ON [Person].[Person].[BusinessEntityID] = [Sales].[PersonCreditCard].[BusinessEn
 -- Indexing: 
 select * from [Sales].[SalesOrderDetail] where [CarrierTrackingNumber] = '4911-403C-98'
 
+USE [AdventureWorks2022]
+GO 
+CREATE NONCLUSTERED INDEX IDX_SalesOrderDetail_CarrierTrackingNumber
+ON [Sales].[SalesOrderDetail] ([CarrierTrackingNumber])
+GO
 
 -- Avoid using SELECT *:
 SELECT *
