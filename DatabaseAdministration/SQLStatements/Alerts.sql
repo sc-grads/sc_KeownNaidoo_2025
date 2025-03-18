@@ -1,6 +1,6 @@
 USE [msdb]
 GO
---FROM THE GUI--
+---FROM THE GUI---
 /****** Object:  Alert [Test Alert]    Script Date: 2025/03/17 15:36:42 ******/
 EXEC msdb.dbo.sp_add_alert @name=N'Test Alert', 
 		@message_id=0, 
