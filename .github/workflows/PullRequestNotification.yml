@@ -14,7 +14,7 @@ jobs:
           titleBackgroundColor: green  # Background color
           message: |
            message: |
-            **Pull Request Notification**
+            **Keown Naidoo - A pull request 🚀**
             - 🏷 **Title:** ${{ github.event.pull_request.title }}
             - 📝 **Description:** ${{ github.event.pull_request.body || 'No description provided' }}
             - 👤 **Author:** ${{ github.actor }}
