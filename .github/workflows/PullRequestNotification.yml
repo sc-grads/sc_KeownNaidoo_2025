@@ -14,12 +14,12 @@ jobs:
           titleBackgroundColor: green  # Background color
           message: |
            message: |
-            **Keown Naidoo - A pull request 🚀**
-            - 🏷 **Title:** ${{ github.event.pull_request.title }}
-            - 📝 **Description:** ${{ github.event.pull_request.body || 'No description provided' }}
-            - 👤 **Author:** ${{ github.actor }}
-            - 🔗 [View PR](${{ github.event.pull_request.html_url }})
-            - 🌿 **Branch:** ${{ github.event.pull_request.head.ref }}
+            **A pull request 🚀**
+             🏷 **Title:** ${{ github.event.pull_request.title }}
+             📝 **Description:** ${{ github.event.pull_request.body || 'No description provided' }}
+             👤 **Author:** ${{ github.actor }}
+             🔗 [View PR](${{ github.event.pull_request.html_url }})
+             🌿 **Branch:** ${{ github.event.pull_request.head.ref }}
 
           
         env:  
