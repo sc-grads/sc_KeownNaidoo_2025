@@ -17,12 +17,12 @@ jobs:
           titleBackgroundColor: "blue"
           message: |
             **Keown Naidoo - A pull request has been merged! 🚀**
-             - 🏷 **Title:** ${{ github.event.pull_request.title }}
-             - 📝 **Description:** ${{ github.event.pull_request.body || 'No description provided' }}
-             - 👤 **Author:** ${{ github.event.pull_request.user.login }}
-             - 🔗 [View PR](${{ github.event.pull_request.html_url }})
-             - 🌿 **Merged Branch:** ${{ github.event.pull_request.head.ref }}
-             - 🔄 **Merged Into:** ${{ github.event.pull_request.base.ref }}
+             1. 🏷 **Title:** ${{ github.event.pull_request.title }}
+             2. 📝 **Description:** ${{ github.event.pull_request.body || 'No description provided' }}
+             3. 👤 **Author:** ${{ github.event.pull_request.user.login }}
+             4. 🔗 [View PR](${{ github.event.pull_request.html_url }})
+             5. 🌿 **Merged Branch:** ${{ github.event.pull_request.head.ref }}
+             6. 🔄 **Merged Into:** ${{ github.event.pull_request.base.ref }}
 
         env:
           SHOULD_DISPLAY_ACTOR_LABEL: true
