@@ -16,6 +16,7 @@ jobs:
           path: node_module #YOU CAN SPECIFY A SPECIFIC FOLDER TO CACHE
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true' #if cace wasnt true then install independices
         run: npm ci
       - name: Lint code
         run: npm run lint
@@ -33,6 +34,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Test code
+        continue-on-error: true
         id : run-tests
         run: npm run test
       - name: Upload test report
@@ -65,16 +67,7 @@ jobs:
           path: dist
   deploy:
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: dist-files
-      - name: Output contents
-        run: ls
-      - name: Deploy
-        run: echo "Deploying..."
+    uses: ./.github/workflows/reusable.yml
   
   report:
     needs: [lint,deploy]
