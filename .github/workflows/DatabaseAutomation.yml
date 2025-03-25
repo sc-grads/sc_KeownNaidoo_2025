@@ -31,3 +31,29 @@ jobs:
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
           sqlcmd -S "$SERVER" -U "$DB_USER" -P "$DB_PASSWORD" -Q "SELECT @@VERSION" || echo "Connection failed: check server, user, or password"
+      - name: Create Database
+        env:
+          SERVER: ${{ secrets.SERVER }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+        run: |
+          sqlcmd -S "$SERVER" -U "$DB_USER" -P "$DB_PASSWORD" -d "master" -i "DatabaseAdministration/DatabaseAutomation/1_CreateDatabase.sql"
+
+      - name: Create Table
+        env:
+          SERVER: ${{ secrets.SERVER }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+        run: |
+          sqlcmd -S "$SERVER" -U "$DB_USER" -P "$DB_PASSWORD" -i "DatabaseAdministration/DatabaseAutomation/2_CreateTable.sql"
+
+      - name: Create Stored Procedure
+        env:
+          SERVER: ${{ secrets.SERVER }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+        run: |
+          sqlcmd -S "$SERVER" -U "$DB_USER" -P "$DB_PASSWORD" -i "DatabaseAdministration/DatabaseAutomation/3_StoredProcedure.sql"
