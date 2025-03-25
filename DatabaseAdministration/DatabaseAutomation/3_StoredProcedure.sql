@@ -1,3 +1,5 @@
+USE [AutoTest]
+GO
 -- Create insert procedure
 CREATE PROCEDURE sp_InsertUser
     @Name NVARCHAR(50),
@@ -5,10 +7,8 @@ CREATE PROCEDURE sp_InsertUser
     @Email NVARCHAR(100)
 AS
 BEGIN
-    INSERT INTO [user] (Name, Surname, Email)
+    INSERT INTO [user] (FirstName, Surname, Email)
     VALUES (@Name, @Surname, @Email);
     
-    -- Return the new ID
-    SELECT SCOPE_IDENTITY() AS NewUserID;
 END
 GO
