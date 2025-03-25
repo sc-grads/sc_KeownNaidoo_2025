@@ -21,8 +21,8 @@ jobs:
 
       - name: Test Connection to SQL Server
         env:
-          DB_SERVER: "hjdkd,11111"  # Use comma instead of colon for port
+          SERVER: ${{ secrets.SERVER }}  # Use comma instead of colon for port
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
-          sqlcmd -S $DB_SERVER -U $DB_USER -P $DB_PASSWORD -Q "SELECT @@VERSION"
+          sqlcmd -S $SERVER -U $DB_USER -P $DB_PASSWORD -Q "SELECT @@VERSION"
