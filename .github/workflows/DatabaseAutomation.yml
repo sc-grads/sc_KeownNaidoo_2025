@@ -1,0 +1,28 @@
+name: Deploy SQL Database
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup-database:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install SQL Server client
+        run: sudo apt-get install -y mssql-tools unixodbc-dev
+
+      - name: Add SQL Server tools to PATH
+        run: echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc && source ~/.bashrc
+
+      - name: Test Connection to SQL Server
+        env:
+          SERVER: ${{ secrets.SERVER }}  # Use comma instead of colon for port
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: |
+          sqlcmd -S $SERVER -U $DB_USER -P $DB_PASSWORD -Q "SELECT @@VERSION"
