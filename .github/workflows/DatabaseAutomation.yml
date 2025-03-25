@@ -48,3 +48,10 @@ jobs:
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
           sqlcmd -S "$SERVER" -U "$DB_USER" -P "$DB_PASSWORD" -i "DatabaseAdministration/DatabaseAutomation/3_StoredProcedure.sql"
+      - name: Execute Stored Procedure
+        env:
+          SERVER: ${{ secrets.SERVER }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: |
+          sqlcmd -S "$SERVER" -U "$DB_USER" -P "$DB_PASSWORD" -i "DatabaseAdministration/DatabaseAutomation/4_ExecuteStoredProcedure.sql"
