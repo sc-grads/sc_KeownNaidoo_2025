@@ -37,28 +37,28 @@ jobs:
           DEV_DB_USER: ${{ secrets.DEV_DB_USER }}
           DEV_DB_PASSWORD: ${{ secrets.DEV_DB_PASSWORD }}
         run: |
-          sqlcmd -S "$DEV_SERVER" -U "$DEV_DB_USER" -P "$DEV_DB_PASSWORD" -d "master" -i "DatabaseAutomation/1_CreateDatabase.sql"
+          sqlcmd -S "$DEV_SERVER" -U "$DEV_DB_USER" -P "$DEV_DB_PASSWORD" -d "master" -i "DatabaseAdministration/DatabaseAutomation/1_CreateDatabase.sql"
       - name: Create Table
         env:
           DEV_SERVER: ${{ secrets.DEV_SERVER }}
           DEV_DB_USER: ${{ secrets.DEV_DB_USER }}
           DEV_DB_PASSWORD: ${{ secrets.DEV_DB_PASSWORD }}
         run: |
-          sqlcmd -S "$DEV_SERVER" -U "$DEV_DB_USER" -P "$DEV_DB_PASSWORD" -d "master" -i "DatabaseAutomation/2_CreateTable.sql"
+          sqlcmd -S "$DEV_SERVER" -U "$DEV_DB_USER" -P "$DEV_DB_PASSWORD" -d "master" -i "DatabaseAdministration/DatabaseAutomation/2_CreateTable.sql"
       - name: Create Stored Procedure
         env:        
           DEV_SERVER: ${{ secrets.DEV_SERVER }}
           DEV_DB_USER: ${{ secrets.DEV_DB_USER }}
           DEV_DB_PASSWORD: ${{ secrets.DEV_DB_PASSWORD }}
         run: |
-          sqlcmd -S "$DEV_SERVER" -U "$DEV_DB_USER" -P "$DEV_DB_PASSWORD" -d "master" -i  "DatabaseAutomation/3_StoredProcedure.sql"
+          sqlcmd -S "$DEV_SERVER" -U "$DEV_DB_USER" -P "$DEV_DB_PASSWORD" -d "master" -i  "DatabaseAdministration/DatabaseAutomation/3_StoredProcedure.sql"
       - name: Execute Stored Procedure
         env:
           DEV_SERVER: ${{ secrets.DEV_SERVER }}
           DEV_DB_USER: ${{ secrets.DEV_DB_USER }}
           DEV_DB_PASSWORD: ${{ secrets.DEV_DB_PASSWORD }}
         run: |
-          sqlcmd -S "$DEV_SERVER" -U "$DEV_DB_USER" -P "$DEV_DB_PASSWORD" -d "master" -i  "DatabaseAutomation/4_ExecuteStoredProcedure.sql"
+          sqlcmd -S "$DEV_SERVER" -U "$DEV_DB_USER" -P "$DEV_DB_PASSWORD" -d "master" -i  "DatabaseAdministration/DatabaseAutomation/4_ExecuteStoredProcedure.sql"
 
   deploy-prod:
     needs: deploy-dev
@@ -91,25 +91,25 @@ jobs:
           PROD_DB_USER: ${{ secrets.PROD_DB_USER }}
           PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
         run: |
-          sqlcmd -S "$PROD_SERVER" -U "$PROD_DB_USER" -P "$PROD_DB_PASSWORD" -d "master" -i "DatabaseAutomation/1_CreateDatabase.sql"
+          sqlcmd -S "$PROD_SERVER" -U "$PROD_DB_USER" -P "$PROD_DB_PASSWORD" -d "master" -i "DatabaseAdministration/DatabaseAutomation/1_CreateDatabase.sql"
       - name: Create Table
         env:
           PROD_SERVER: ${{ secrets.PROD_SERVER }}
           PROD_DB_USER: ${{ secrets.PROD_DB_USER }}
           PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
         run: |
-          sqlcmd -S "$PROD_SERVER" -U "$PROD_DB_USER" -P "$PROD_DB_PASSWORD"  -i "DatabaseAutomation/2_CreateTable.sql"
+          sqlcmd -S "$PROD_SERVER" -U "$PROD_DB_USER" -P "$PROD_DB_PASSWORD"  -i "DatabaseAdministration/DatabaseAutomation/2_CreateTable.sql"
       - name: Create Stored Procedure
         env:
           PROD_SERVER: ${{ secrets.PROD_SERVER }}
           PROD_DB_USER: ${{ secrets.PROD_DB_USER }}
           PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
         run: |
-          sqlcmd -S "$PROD_SERVER" -U "$PROD_DB_USER" -P "$PROD_DB_PASSWORD"  -i "DatabaseAutomation/3_StoredProcedure.sql"
+          sqlcmd -S "$PROD_SERVER" -U "$PROD_DB_USER" -P "$PROD_DB_PASSWORD"  -i "DatabaseAdministration/DatabaseAutomation/3_StoredProcedure.sql"
       - name: Execute Stored Procedure
         env:
           PROD_SERVER: ${{ secrets.PROD_SERVER }}
           PROD_DB_USER: ${{ secrets.PROD_DB_USER }}
           PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
         run: |
-          sqlcmd -S "$PROD_SERVER" -U "$PROD_DB_USER" -P "$PROD_DB_PASSWORD"  -i "DatabaseAutomation/4_ExecuteStoredProcedure.sql"
+          sqlcmd -S "$PROD_SERVER" -U "$PROD_DB_USER" -P "$PROD_DB_PASSWORD"  -i "DatabaseAdministration/DatabaseAutomation/4_ExecuteStoredProcedure.sql"
