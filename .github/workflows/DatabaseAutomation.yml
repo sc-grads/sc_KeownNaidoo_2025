@@ -1,8 +1,8 @@
 name: Deploy SQL Database
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
+#  push:
+ #   branches:
+  #    - main
 jobs:
   setup-database:
     runs-on: ubuntu-latest
