@@ -2,6 +2,6 @@
 USE master
 GO
  
-CREATE DATABASE AutoTest
+CREATE DATABASE AutoTest_KeownNaidoo
 GO
 
