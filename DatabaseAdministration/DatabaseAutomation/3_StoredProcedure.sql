@@ -1,4 +1,4 @@
-USE [AutoTest]
+USE [AutoTest_KeownNaidoo]
 GO
 CREATE PROCEDURE sp_InsertUser
     @FirstName NVARCHAR(50),  -- Changed to match column
