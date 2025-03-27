@@ -1,4 +1,4 @@
-USE [AutoTest]
+USE [AutoTest_KeownNaidoo]
 GO
 
 CREATE TABLE [user] (
