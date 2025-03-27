@@ -1,4 +1,4 @@
-name: Deploy SQL Database
+name: AC Deploy SQL Database
 on:  workflow_dispatch
 # pull_request:
 #   type:
