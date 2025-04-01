@@ -1,57 +1,106 @@
+#!/bin/bash
 
-# Basic Linux Commands Cheat Sheet
+# =============================================
+# BASIC COMMANDS
+# =============================================
+echo "Hello"                            # Print text to terminal
+echo "Hello, World!"                    # Print message to terminal
+clear                                   # Clear terminal screen
+exit                                    # Exit terminal session
+logout                                  # Alternative exit method
+pwd                                     # Print current directory path
 
-# 1. ls  
-# Lists directory contents.  
-# ls → Show files and directories in the current directory.  
-# ls -l → Display detailed file information.  
-# ls -a → Show hidden files.  
+# =============================================
+# FILE/DIRECTORY OPERATIONS
+# =============================================
+ls                                      # List directory contents
+ls -l                                   # Detailed list view
+ls -a                                   # Show hidden files
+cd Documents                            # Change to Documents directory
+cd                                      # Return to home directory
+cd ..                                   # Move to parent directory
+cat example.txt                         # Display file contents
+mkdir myfolder                          # Create new directory
+mkdir -p parent/child                   # Create nested directories
+rmdir myfolder                          # Remove empty directory
+rmdir -p parent/child                   # Remove empty nested directories
+rm -rf myfolder                         # Force delete directory+contents
+nano file.sh                            # Edit file with nano
+vi file.sh                              # Edit file with vi
+cp linux.sh file.txt                    # Copy file to new file
+cp linux.sh file.txt dir                # Copy files to directory
+mv dir dirRenamed                       # Rename directory
+mv file.txt dir1                        # Move file to directory
 
-# 2. cd [directory]  
-# Change directory.  
-# cd Documents → Move into the Documents directory.  
-# cd → Go to home directory.  
-# cd .. → Move up one level.  
+# =============================================
+# ARCHIVE/COMPRESSION
+# =============================================
+tar -cvf archive.tar file1 file2        # Create tar archive -c Create a new archive.
 
-# 3. pwd  
-# Show the current directory.  
-# pwd → Display the present working directory.  
+                                                            # -v  Verbose (shows progress).
 
-# 4. cat [file]  
-# View file contents.  
-# cat example.txt → Display contents of example.txt.  
+                                                            # -f  Specify the filename of the archive.
+tar -xvf archive.tar                    # Extract tar archive
+                                                            # -x  Extract files.
 
-# 5. echo [text]  
-# Print text or variables.  
-# echo "Hello, World!" → Output: Hello, World!  
+                                                            # -v  Show progress.
 
-# 6. man [command]  
-# Show the manual for a command.  
-# man ls → Open manual for `ls`.  
-# Press `q` to exit.  
+                                                            # -f  Specify the archive file.
+tar -czvf archive.tar.gz dir/           # Create compressed tar.gz
+                                                            #-z  compresses using gzip files.
+gzip file.txt                           # Compress to file.txt.gz
+gunzip file.txt.gz                      # Decompress .gz file
 
-# 7. exit, logout, or Ctrl+D  
-# Close terminal session.  
-# exit → Exit the terminal.  
-# Ctrl+D → Alternative way to exit.  
+# =============================================
+# DISK MANAGEMENT
+# =============================================
+df -h                                   # Show disk space (human-readable)
+du -sh dir/                             # Show directory size summary
 
-# 8. clear  
-# Clear the terminal screen.  
-# clear → Erase previous commands and outputs.  
+# =============================================
+# I/O REDIRECTION
+# =============================================
+ls -l > output.txt                    # Overwrite output to file
+ls dir/file1 >> output.txt                   # Append output to file
+command 2> error.log                    # Redirect errors to file
+command &> all.log                      # Redirect stdout and stderr
+ls | head -n 5                     # Pipe output between commands shows only the top 5 items from ls
 
-# 9. mkdir [-p] directory  
-# Create a new directory.  
-# mkdir myfolder → Create `myfolder`.  
-# mkdir -p parent/child → Create parent directories if needed.  
+# =============================================
+# TEXT PROCESSING
+# =============================================
+diff file1 file2                        # Compare two files
+grep 'pattern' file.txt                 # Search for pattern in file
+cat file.txt | sort | uniq              # Sort and remove duplicates
 
-# 10. rmdir [-p] directory  
-# Remove an empty directory.  
-# rmdir myfolder → Remove `myfolder` if empty.  
-# rmdir -p parent/child → Remove empty parent directories.  
+# =============================================
+# PROCESSES & ENVIRONMENT
+# =============================================
+ps aux                                  # List all running processes
+kill -9 PID                             # Force kill process by ID
+export VAR=value                        # Set environment variable
+env                                     # List all environment variables
 
-# 11. rm -rf directory  
-# Delete a directory and its contents forcefully.  
-# rm -rf myfolder → Remove `myfolder` and all inside it.  
+# =============================================
+# CRON JOBS
+# =============================================
+crontab -e                              # Edit cron jobs
+# * * * * * /path/to/command            # Cron schedule format:
+# | | | | | 
+# | | | | +----- Day of week (0-6)
+# | | | +------- Month (1-12)
+# | | +--------- Day of month (1-31)
+# | +----------- Hour (0-23)
+# +------------- Minute (0-59)
 
-# ---
-# Use these commands to navigate and manage files efficiently in Linux!
+# =============================================
+# PACKAGE MANAGEMENT (Debian/Ubuntu) -get and cache combined
+# =============================================
+sudo apt update                       # Refresh package lists
+sudo apt upgrade                      # Upgrade all installed packages
+sudo apt install nginx                # Install a package
+sudo apt remove nginx                  # Remove a package
+sudo apt purge nginx                   # Remove + delete config files
+sudo apt autoremove                   # Remove unused dependencies
+sudo apt search nginx                 # Search for packages
+curl https://websitelink.com          #Used to search for packages over the network (internet)
