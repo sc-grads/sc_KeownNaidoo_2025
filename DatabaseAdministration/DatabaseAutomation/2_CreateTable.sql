@@ -7,7 +7,7 @@ BEGIN TRY
         Surname NVARCHAR(50) NOT NULL,
         Email NVARCHAR(100) NOT NULL
     );
-    PRINT 'Table [user] created successfully.';
+    PRINT 'Table created successfully.';
 END TRY
 BEGIN CATCH
     PRINT 'Error occurred while creating the table.';
