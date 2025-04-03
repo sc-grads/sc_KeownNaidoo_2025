@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/testing
+      - uses: ./.github/actions/DatabaseDeployment
         with:
           server: ${{ secrets.SERVER }}
           db_user: ${{ secrets.DB_USER }}
