@@ -11,7 +11,7 @@ BEGIN TRY
         INSERT INTO [user] (FirstName, Surname, Email)
         VALUES (@FirstName, @Surname, @Email);
     END;
-    PRINT 'Stored procedure sp_InsertUser created successfully.';
+    PRINT 'Stored procedure created successfully.';
 END TRY
 BEGIN CATCH
     PRINT 'Error occurred while creating the stored procedure.';
