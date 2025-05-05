@@ -1,16 +1,42 @@
-# This is a sample Python script.
+print('Bob') # this greets the user
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Variables
+
+greet = 'hello'
+
+print(greet +' Bob')
+print(greet +' Cat')
+
+#constants
+PI = 3.1415
+VERSION = 2
+
+#data types
+
+print(10 + 5.5)
+
+number = 100
+percent = 1.5
+imaginery = 5j
+
+bool = True
+
+text = 'Hello bob'
+
+num =[1,2,3,4]
+
+#mapping
+
+users = {'bob': 1, 'stone': 2}
+
+#set
+
+raffle ={1,10,25,45}
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+number: int = 10
+
+print(number)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
