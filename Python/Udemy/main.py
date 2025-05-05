@@ -1,3 +1,12 @@
+import modules as g
+from modules import greet
+from modules import greet
+
+
+
+g.greet("heloo")
+greet('eee')
+
 print('Bob') # this greets the user
 
 # Variables
