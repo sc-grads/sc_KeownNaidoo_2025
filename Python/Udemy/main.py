@@ -2,6 +2,11 @@ import modules as g
 from modules import greet
 from modules import greet
 
+from my_package import internet,website
+
+internet.connect()
+website.load("www.google.com")
+
 
 
 g.greet("heloo")
