@@ -71,3 +71,57 @@ my_list: list[int] = [1, 2, 3]
 print(isinstance(text, int))
 
 #################################################################
+
+fruit : str = 'apple'
+num:int=10
+
+def func()->None:
+    ...
+
+print(f'callable(): {callable(fruit)}')
+print(f'callable(): {callable(num)}')
+print(f'callable(): {callable(func)}')
+
+##############################################################
+numbers: list[int] = list(range(1, 21))
+print(numbers)
+
+even_numbers: filter = filter(lambda n: n % 2 == 0, numbers)
+print(even_numbers)
+print(list(even_numbers))
+
+#################################################################
+
+numbers: list[int] = [1, 2, 3, 4, 5]
+
+def double(number: int) -> int:
+    return number * 2
+
+doubled: map = map(double, numbers)
+print(doubled)
+print(list(doubled))
+
+#######################################
+numbers: list[int] = [1, 2, 3, 4, 5]
+letters: list[str] = ['a', 'b', 'c']
+
+def combine_elements(n: int, l: str) -> tuple[int, str]:
+    return n, l
+
+combined: map = map(lambda n, l: (n, l), numbers, letters)
+print(list(combined))
+
+################################################################
+
+people: list[str] = ['Mario', 'James', 'Anna', 'Tom']
+sorted_names: list[str] = sorted(people, key=lambda x: len(x))
+print(sorted_names)
+
+
+#############################################
+
+while True:
+    user_input: str = input('Enter math expression: ')
+
+    result = eval(user_input)
+    print(f"Result: {result}")
