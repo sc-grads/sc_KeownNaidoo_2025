@@ -51,6 +51,6 @@ file_path: str = 'data.json'
 with open(file_path, 'r') as file:
         data: Dict[str, Any] = json.load(file)  # Fixed syntax and added type hints
         print("Successfully loaded JSON data:")
-        print(json.dumps(data)  # Pretty-print the JSON
+        print(json.dumps(data) ) # Pretty-print the JSON
 
 
