@@ -29,3 +29,21 @@ go
 
 
 SELECT RAND(555)
+
+go
+
+-- IMPLICIT
+
+DECLARE @myvar as Decimal(5,2) = 3
+
+SELECT @myvar
+
+-- explicit
+
+SELECT CONVERT(decimal(5,2),3)/2 -- 3 is the int
+
+SELECt CAST(3 as decimal(5,2))/2 -- 3 is being casted as a decimal
+
+SELECT CONVERT(INT,12.345)+CONVERT(INT,12.7) 
+SELECT CONVERT(INT,12.345+12.7) 
+
