@@ -5,3 +5,5 @@ GO
 SELECT 24 * 4+3 AS MyResponse
 GO 
 SELECT 48 /4 AS RESULT
+GO
+SELECT 11*12 AS TheAnswer
