@@ -30,7 +30,7 @@ begin
 			select @ErrorMessage = error_Message()
 			raiserror (@ErrorMessage, 16, 1)
 		
-		select 'Hi There'
+		select 'Hello There'
 	end catch
 end
 go
