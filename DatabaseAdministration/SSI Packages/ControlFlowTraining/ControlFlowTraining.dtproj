@@ -14,8 +14,23 @@
     <Manifest>
       <DTSPackages>
         <DtsPackage FormatVersion="8">
+          <Name>ADOtoADO.dtsx</Name>
+          <FullPath>ADOtoADO.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>BackUpDB.dtsx</Name>
+          <FullPath>BackUpDB.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
           <Name>BulkInsert.dtsx</Name>
           <FullPath>BulkInsert.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>CheckPoints.dtsx</Name>
+          <FullPath>CheckPoints.dtsx</FullPath>
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
@@ -74,8 +89,38 @@
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
+          <Name>HistoryCleanUp.dtsx</Name>
+          <FullPath>HistoryCleanUp.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>IncrementalInserts.dtsx</Name>
+          <FullPath>IncrementalInserts.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
           <Name>LogProviderText.dtsx</Name>
           <FullPath>LogProviderText.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>CDC.dtsx</Name>
+          <FullPath>CDC.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>PrecedenceCon.dtsx</Name>
+          <FullPath>PrecedenceCon.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>RawtoSQL.dtsx</Name>
+          <FullPath>RawtoSQL.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>RebuildIndex.dtsx</Name>
+          <FullPath>RebuildIndex.dtsx</FullPath>
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
@@ -84,8 +129,13 @@
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
-          <Name>PrecedenceCon.dtsx</Name>
-          <FullPath>PrecedenceCon.dtsx</FullPath>
+          <Name>RecordSet.dtsx</Name>
+          <FullPath>RecordSet.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>ReorganiseIndex.dtsx</Name>
+          <FullPath>ReorganiseIndex.dtsx</FullPath>
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
@@ -96,6 +146,16 @@
         <DtsPackage FormatVersion="8">
           <Name>SequenceContainer.dtsx</Name>
           <FullPath>SequenceContainer.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>ShrinkDatabase.dtsx</Name>
+          <FullPath>ShrinkDatabase.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>SQLServerAgent.dtsx</Name>
+          <FullPath>SQLServerAgent.dtsx</FullPath>
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
@@ -119,6 +179,21 @@
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
+          <Name>TSQL.dtsx</Name>
+          <FullPath>TSQL.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>UpdateModified.dtsx</Name>
+          <FullPath>UpdateModified.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>UpdateStat.dtsx</Name>
+          <FullPath>UpdateStat.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
           <Name>Webservice.dtsx</Name>
           <FullPath>Webservice.dtsx</FullPath>
           <References />
@@ -131,6 +206,11 @@
         <DtsPackage FormatVersion="8">
           <Name>XML.dtsx</Name>
           <FullPath>XML.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>XMLtoRaw.dtsx</Name>
+          <FullPath>XMLtoRaw.dtsx</FullPath>
           <References />
         </DtsPackage>
       </DTSPackages>
@@ -154,13 +234,7 @@
         <LinkedAzureSSISIR />
         <LinkedAzureStorage />
         <RemoteExecutionFolder />
-        <ParameterConfigurationValues>
-          <ConfigurationSetting>
-            <Id>LastModifiedTime</Id>
-            <Name>LastModifiedTime</Name>
-            <Value xsi:type="xsd:dateTime">2025-05-28T07:02:45.5209083Z</Value>
-          </ConfigurationSetting>
-        </ParameterConfigurationValues>
+        <ParameterConfigurationValues />
       </Options>
     </Configuration>
   </Configurations>
