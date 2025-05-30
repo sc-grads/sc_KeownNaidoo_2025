@@ -8,8 +8,6 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
-        <ServerName>.</ServerName>
-        <PathOnServer>/SSISDB/MyssisDemos/DataFlowTraining</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
@@ -18,7 +16,7 @@
           <ConfigurationSetting>
             <Id>LastModifiedTime</Id>
             <Name>LastModifiedTime</Name>
-            <Value xsi:type="xsd:dateTime">2025-05-27T06:48:51.4207096Z</Value>
+            <Value xsi:type="xsd:dateTime">2025-05-30T06:54:50.7479107Z</Value>
           </ConfigurationSetting>
         </ParameterConfigurationSensitiveValues>
       </Options>

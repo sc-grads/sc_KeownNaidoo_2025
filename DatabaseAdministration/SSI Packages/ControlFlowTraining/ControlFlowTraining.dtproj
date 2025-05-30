@@ -29,6 +29,11 @@
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
+          <Name>CDC.dtsx</Name>
+          <FullPath>CDC.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
           <Name>CheckPoints.dtsx</Name>
           <FullPath>CheckPoints.dtsx</FullPath>
           <References />
@@ -104,8 +109,13 @@
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
-          <Name>CDC.dtsx</Name>
-          <FullPath>CDC.dtsx</FullPath>
+          <Name>CDCInsert.dtsx</Name>
+          <FullPath>CDCInsert.dtsx</FullPath>
+          <References />
+        </DtsPackage>
+        <DtsPackage FormatVersion="8">
+          <Name>Package2.dtsx</Name>
+          <FullPath>Package2.dtsx</FullPath>
           <References />
         </DtsPackage>
         <DtsPackage FormatVersion="8">
