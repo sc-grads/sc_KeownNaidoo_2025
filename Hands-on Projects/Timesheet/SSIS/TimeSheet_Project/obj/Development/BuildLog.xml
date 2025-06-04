@@ -2,38 +2,23 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>TimeSheet_Project</Name>
-    <LastWriteTime>2025-06-04T08:25:52.6604909Z</LastWriteTime>
+    <LastWriteTime>2025-06-04T13:21:28.1469634Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>ExcelToSQL.dtsx</Name>
-      <LastWriteTime>2025-06-04T07:51:15.622653Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Looping.dtsx</Name>
-      <LastWriteTime>2025-06-03T15:06:06.1090133Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>Package1.dtsx</Name>
-      <LastWriteTime>2025-06-04T06:19:19.5853011Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
-    <ProjectBuildItemInfo>
-      <Name>FileLooping.dtsx</Name>
-      <LastWriteTime>2025-06-04T06:21:47.2752517Z</LastWriteTime>
+      <LastWriteTime>2025-06-04T09:00:29.3662308Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Importing.dtsx</Name>
-      <LastWriteTime>2025-06-04T08:19:32.3638952Z</LastWriteTime>
+      <LastWriteTime>2025-06-04T13:21:28.1323883Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Package2.dtsx</Name>
-      <LastWriteTime>2025-06-04T08:29:33.5357654Z</LastWriteTime>
+      <Name>ErrorHandling.dtsx</Name>
+      <LastWriteTime>2025-06-04T13:21:45.9590192Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

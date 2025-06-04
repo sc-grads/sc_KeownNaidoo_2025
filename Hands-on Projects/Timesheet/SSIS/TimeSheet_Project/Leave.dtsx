@@ -1,25 +1,25 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/4/2025 8:58:39 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SAMBE2025006"
   DTS:CreatorName="SAMBE2025006\Keown Naidoo"
-  DTS:DTSID="{ED4435AC-95AE-4B68-9D15-39D1FFB558CB}"
+  DTS:DTSID="{3E979798-E638-4932-A168-D51389E38E78}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="7177"
-  DTS:ObjectName="Importing"
+  DTS:ObjectName="Leave"
   DTS:PackageType="5"
-  DTS:VersionBuild="75"
-  DTS:VersionGUID="{12C10A00-D66F-43E4-BC59-8100EBFBFE67}">
+  DTS:VersionBuild="79"
+  DTS:VersionGUID="{4766F6C9-08D0-4D62-B04B-1195DEEF3319}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{BF2A59C3-19FC-44D4-AB8C-261B25057A85}"
+      DTS:DTSID="{E2AA3FCA-1A8C-4A2D-8F11-73493AB66704}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + @[User::FilePath] + ";Extended Properties=\"Excel 12.0;HDR=NO\";"</DTS:PropertyExpression>
@@ -31,34 +31,46 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{8CB9DFA5-428D-4364-8D5D-AB22EB2C1245}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Keown Naidoo\Desktop\Timesheet-Data\Keown\April\April.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.Sambe]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{B9D91D89-8095-4EB3-B821-D5AD95C5E1AC}"
+      DTS:DTSID="{1930FFFC-D7CD-430B-AF64-6D60D0331B66}"
       DTS:ObjectName="LocalHost.Sambe">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=Sambe;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Importing-{B9D91D89-8095-4EB3-B821-D5AD95C5E1AC}LocalHost.Sambe;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Sambe;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Importing-{1930FFFC-D7CD-430B-AF64-6D60D0331B66}LocalHost.Sambe;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.TimesheetDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{4A0F36B1-91A1-4C41-90DA-337B14CF68FF}"
+      DTS:DTSID="{E696C092-CD06-445F-9719-B7A59645CCD1}"
       DTS:ObjectName="LocalHost.TimesheetDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=TimesheetDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Importing-{4A0F36B1-91A1-4C41-90DA-337B14CF68FF}LocalHost.TimesheetDB;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=TimesheetDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Importing-{E696C092-CD06-445F-9719-B7A59645CCD1}LocalHost.TimesheetDB;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C4E1CB83-1DCD-4D6B-A8FD-B2D283B527A4}"
+      DTS:DTSID="{FCF0901A-007D-4CDA-887F-DBD6522BB3F1}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FilePath">
@@ -67,7 +79,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{14F31BAB-79ED-4300-9FCB-E53AFE6C1127}"
+      DTS:DTSID="{BF40EC1F-90A3-467D-A1B0-A038CE70BC39}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="SheetName">
@@ -76,7 +88,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2BECF1D4-755D-4698-AC99-33ED208FEA12}"
+      DTS:DTSID="{24406B6C-1DF1-4E16-B2DF-51E865415AC2}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="SUBSTRING(&#xA;    @[User::FilePath],&#xA;    FINDSTRING(@[User::FilePath], &quot;\\&quot;, TOKENCOUNT(@[User::FilePath], &quot;\\&quot;) - 3) + 1,&#xA;    FINDSTRING(@[User::FilePath], &quot;\\&quot;, TOKENCOUNT(@[User::FilePath], &quot;\\&quot;) - 2) - FINDSTRING(@[User::FilePath], &quot;\\&quot;, TOKENCOUNT(@[User::FilePath], &quot;\\&quot;) - 3) - 1&#xA;)"
       DTS:IncludeInDebugDump="2345"
@@ -88,18 +100,33 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5DFC4DB0-5320-4AD0-ACAF-30A8BB7C5B1A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
       DTS:Disabled="True"
-      DTS:DTSID="{DE46B008-0E1A-423C-9AB6-35E4E99023D5}"
+      DTS:DTSID="{38C7C4AE-53A7-446D-82F5-3222522A1199}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{447DA7B4-5BAE-48CE-9514-741B3CC34CFD}"
-        DTS:ObjectName="{447DA7B4-5BAE-48CE-9514-741B3CC34CFD}">
+        DTS:DTSID="{8EFD34A0-E043-418B-A2FF-61768F021744}"
+        DTS:ObjectName="{8EFD34A0-E043-418B-A2FF-61768F021744}">
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
@@ -119,7 +146,7 @@
           DTS:refId="Package\Foreach Loop Container\Data Flow Task"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{8246FC4C-9A9C-4CC3-8982-1D6CB8AEDB62}"
+          DTS:DTSID="{9EA50FE6-2182-4D46-9E72-4C44EEE7ACA5}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Data Flow Task"
@@ -1193,7 +1220,7 @@
           DTS:refId="Package\Foreach Loop Container\Script Task"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
-          DTS:DTSID="{52CD06CB-3D82-4247-B1E6-5874E55861FB}"
+          DTS:DTSID="{24C64269-2F6C-4ADB-AFD5-A35AB00D1625}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Script Task"
@@ -1907,7 +1934,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
           DTS:Disabled="True"
-          DTS:DTSID="{E70852E9-2EDA-49D4-86F4-16DBB56EB78D}"
+          DTS:DTSID="{46F442DA-0DDD-4631-B575-C4EEB000C966}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Script Task 1"
@@ -2523,7 +2550,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{FAE61064-763D-482B-899F-C3FB9450D972}"
+          DTS:DTSID="{7118740A-8582-4068-9A60-1A8498C220CC}"
           DTS:From="Package\Foreach Loop Container\Script Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -2532,8 +2559,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{2E062283-5A04-4F37-82BF-50C0D4634416}"
-          DTS:ObjectName="{2E062283-5A04-4F37-82BF-50C0D4634416}"
+          DTS:DTSID="{77684745-AAEB-4195-9265-2C8EBFA4F1E2}"
+          DTS:ObjectName="{77684745-AAEB-4195-9265-2C8EBFA4F1E2}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FilePath" />
       </DTS:ForEachVariableMappings>
@@ -2542,14 +2569,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:refId="Package\Foreach Loop Container 1"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{3da479a9-3b89-45f2-bdd2-953e23a64edf}"
+      DTS:Disabled="True"
+      DTS:DTSID="{2042C208-F167-4A69-825F-39458A9837AB}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container 1">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{12b66a5e-8c00-404f-8d47-a1109fb582d6}"
-        DTS:ObjectName="{447DA7B4-5BAE-48CE-9514-741B3CC34CFD}">
+        DTS:DTSID="{74E6DD42-EA8D-4858-BFB7-327EBF363056}"
+        DTS:ObjectName="{8EFD34A0-E043-418B-A2FF-61768F021744}">
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
@@ -2569,7 +2597,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           DTS:refId="Package\Foreach Loop Container 1\Data Flow Task"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{21742fec-36da-4cb4-a661-2d73afd6013f}"
+          DTS:DTSID="{A511503B-E60C-43D8-AE78-13C313DEEA21}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Data Flow Task"
@@ -3697,7 +3725,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           DTS:refId="Package\Foreach Loop Container 1\Script Task"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
-          DTS:DTSID="{755933db-b0ee-458d-8804-0add51b59dac}"
+          DTS:DTSID="{82595046-FC89-4202-B532-F7F60E14B955}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Script Task"
@@ -4387,7 +4415,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{4af994eb-2b89-47ec-88f8-5fc7da570eba}"
+          DTS:DTSID="{AFEBC666-F978-4C56-BC14-8F6013210C1A}"
           DTS:From="Package\Foreach Loop Container 1\Script Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -4396,8 +4424,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{48adeb44-fb64-4351-b54c-9f6c33967965}"
-          DTS:ObjectName="{2E062283-5A04-4F37-82BF-50C0D4634416}"
+          DTS:DTSID="{89FB643A-610A-4CC1-A36C-01AF8536F5D6}"
+          DTS:ObjectName="{77684745-AAEB-4195-9265-2C8EBFA4F1E2}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FilePath" />
       </DTS:ForEachVariableMappings>
@@ -4423,6 +4451,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Size="130.4,41.6"
           Id="Package\Foreach Loop Container\Script Task"
           TopLeft="114.966650594109,22.3999987705549" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Foreach Loop Container\Script Task 1"
+          TopLeft="124.133316759932,173.199997721911" />
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           TopLeft="182.666650730704,63.9999987705549">
@@ -4445,10 +4477,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="139.2,41.6"
-          Id="Package\Foreach Loop Container\Script Task 1"
-          TopLeft="124.133316759932,173.199997721911" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -4492,7 +4520,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           PanelSize="414.4,269.6"
           Size="414.4,312.8"
           Id="Package\Foreach Loop Container 1"
-          TopLeft="454.666643354628,49.3999996564785" />
+          TopLeft="453.833310066826,48.5333329958385" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Data Flow Task 1"
+          TopLeft="178.233323726224,416.866663767828" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4502,6 +4534,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="156,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\Data Conversion"
+          TopLeft="309.166649774545,316.333331133591" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
+          TopLeft="314.99998278916,414.266663785908" />
+        <NodeLayout
           Size="140,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task\Excel Source"
           TopLeft="313.333316213556,43.3333330319987" />
@@ -4509,6 +4549,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Size="153.6,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task\Conditional Split"
           TopLeft="300.833316896525,137.799999041756" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\Derived Column"
+          TopLeft="308.333316486744,229.666665069593" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Excel Source Output]"
           TopLeft="380.48331655504,84.9333330319987">
@@ -4528,41 +4572,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Foreach Loop Container\Data Flow Task\Derived Column"
-          TopLeft="308.333316486744,229.666665069593" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Conditional Split Default Output]"
-          TopLeft="381.183316691635,179.399999041756">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.2666660278374"
-              Start="0,0"
-              End="0,42.7666660278374">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.7666660278374" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8,13.3833330139187,16,16"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Foreach Loop Container\Data Flow Task\Data Conversion"
-          TopLeft="309.166649774545,316.333331133591" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="385.949983130645,271.266665069593">
@@ -4582,13 +4596,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
-          TopLeft="314.99998278916,414.266663785908" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Data Conversion Output]"
           TopLeft="387.166649774545,357.933331133591">
@@ -4620,7 +4632,33 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Conditional Split Default Output]"
+          TopLeft="381.183316691635,179.399999041756">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.2666660278374"
+              Start="0,0"
+              End="0,42.7666660278374">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.7666660278374" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,13.3833330139187,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4657,9 +4695,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Destination"
           TopLeft="314.99998278916,414.266663785908" />
         <NodeLayout
+          Size="156,41.6"
+          Id="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion"
+          TopLeft="309.166649774545,316.333331133591" />
+        <NodeLayout
           Size="140,41.6"
           Id="Package\Foreach Loop Container 1\Data Flow Task\Excel Source"
           TopLeft="313.333316213556,43.3333330319987" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1"
+          TopLeft="609.999990910292,123.999998152256" />
         <NodeLayout
           Size="153.6,41.6"
           Id="Package\Foreach Loop Container 1\Data Flow Task\Conditional Split"
@@ -4668,10 +4714,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Size="152.8,41.6"
           Id="Package\Foreach Loop Container 1\Data Flow Task\Derived Column"
           TopLeft="308.333316486744,229.666665069593" />
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion"
-          TopLeft="309.166649774545,316.333331133591" />
         <EdgeLayout
           Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Excel Source Output]"
           TopLeft="380.48331655504,84.9333330319987">
@@ -4691,93 +4733,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="385.949983130645,271.266665069593">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,45.0666660639972"
-              Start="0,0"
-              End="0,37.5666660639972">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.5666660639972" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="387.166649774545,357.933331133591">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="13.433333014614,56.3333326523172"
-              Start="0,0"
-              End="13.433333014614,48.8333326523172">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.1666663261586" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.1666663261586"
-                    Point2="0,28.1666663261586"
-                    Point3="4,28.1666663261586" />
-                  <mssgle:LineSegment
-                    End="9.43333301461405,28.1666663261586" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.43333301461405,28.1666663261586"
-                    Point2="13.433333014614,28.1666663261586"
-                    Point3="13.433333014614,32.1666663261586" />
-                  <mssgle:LineSegment
-                    End="13.433333014614,48.8333326523172" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Conditional Split Default Output]"
-          TopLeft="381.183316691635,179.399999041756">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.2666660278374"
-              Start="0,0"
-              End="0,42.7666660278374">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.7666660278374" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.61390625,15.5542314514187,141.2278125,11.658203125"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1"
-          TopLeft="609.999990910292,123.999998152256" />
         <EdgeLayout
           Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Excel Source Error Output]"
           TopLeft="405.333316213556,84.9333330319987">
@@ -4811,6 +4771,90 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="76.0132982858679,20.891524794681,133.440078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="385.949983130645,271.266665069593">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.0666660639972"
+              Start="0,0"
+              End="0,37.5666660639972">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5666660639972" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="387.166649774545,357.933331133591">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.433333014614,56.3333326523172"
+              Start="0,0"
+              End="13.433333014614,48.8333326523172">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.1666663261586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.1666663261586"
+                    Point2="0,28.1666663261586"
+                    Point3="4,28.1666663261586" />
+                  <mssgle:LineSegment
+                    End="9.43333301461405,28.1666663261586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.43333301461405,28.1666663261586"
+                    Point2="13.433333014614,28.1666663261586"
+                    Point3="13.433333014614,32.1666663261586" />
+                  <mssgle:LineSegment
+                    End="13.433333014614,48.8333326523172" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Conditional Split Default Output]"
+          TopLeft="381.183316691635,179.399999041756">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.2666660278374"
+              Start="0,0"
+              End="0,42.7666660278374">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.7666660278374" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.61390625,15.5542314514187,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
