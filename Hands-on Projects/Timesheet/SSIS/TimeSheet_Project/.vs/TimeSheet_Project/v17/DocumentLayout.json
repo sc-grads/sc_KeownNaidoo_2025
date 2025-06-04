@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Keown Naidoo\\repos\\sc_KeownNaidoo_2025\\Hands-on Projects\\Timesheet\\SSIS\\TimeSheet_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BD2CB627-4F5A-E813-A386-B716FCDAE325}|TimeSheet_Project.dtproj|C:\\Users\\Keown Naidoo\\repos\\sc_KeownNaidoo_2025\\Hands-on Projects\\Timesheet\\SSIS\\TimeSheet_Project\\Leave.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{BD2CB627-4F5A-E813-A386-B716FCDAE325}|TimeSheet_Project.dtproj|solutionrelative:Leave.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BD2CB627-4F5A-E813-A386-B716FCDAE325}|TimeSheet_Project.dtproj|C:\\Users\\Keown Naidoo\\repos\\sc_KeownNaidoo_2025\\Hands-on Projects\\Timesheet\\SSIS\\TimeSheet_Project\\Importing.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
       "RelativeMoniker": "D:0:0:{BD2CB627-4F5A-E813-A386-B716FCDAE325}|TimeSheet_Project.dtproj|solutionrelative:Importing.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD2CB627-4F5A-E813-A386-B716FCDAE325}|TimeSheet_Project.dtproj|C:\\Users\\Keown Naidoo\\repos\\sc_KeownNaidoo_2025\\Hands-on Projects\\Timesheet\\SSIS\\TimeSheet_Project\\Leave.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{BD2CB627-4F5A-E813-A386-B716FCDAE325}|TimeSheet_Project.dtproj|solutionrelative:Leave.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,7 +26,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Leave.dtsx [Design]",
               "DocumentMoniker": "C:\\Users\\Keown Naidoo\\repos\\sc_KeownNaidoo_2025\\Hands-on Projects\\Timesheet\\SSIS\\TimeSheet_Project\\Leave.dtsx",
               "RelativeDocumentMoniker": "Leave.dtsx",
@@ -38,7 +38,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Importing.dtsx [Design]",
               "DocumentMoniker": "C:\\Users\\Keown Naidoo\\repos\\sc_KeownNaidoo_2025\\Hands-on Projects\\Timesheet\\SSIS\\TimeSheet_Project\\Importing.dtsx",
               "RelativeDocumentMoniker": "Importing.dtsx",
