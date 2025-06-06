@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/4/2025 8:58:39 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SAMBE2025006"
   DTS:CreatorName="SAMBE2025006\Keown Naidoo"
-  DTS:DTSID="{CBE989A7-DF93-4CD4-9903-24430326516B}"
+  DTS:DTSID="{BDD4125C-802A-4815-B505-367BB589AA88}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="7177"
   DTS:ObjectName="ImportingV2"
   DTS:PackageType="5"
   DTS:VersionBuild="118"
-  DTS:VersionGUID="{ED81815A-2760-4397-9397-C27FFB14BC5D}">
+  DTS:VersionGUID="{48AE9D09-7F01-4B8F-B57E-8BF978266069}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{69A73949-FE8A-4198-957F-AE337F99E789}"
+      DTS:DTSID="{5617C899-D75C-4555-80E1-3209652935BF}"
       DTS:ObjectName="Excel Connection Manager">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + @[User::FilePath] + ";Extended Properties=\"Excel 12.0;HDR=NO\";"</DTS:PropertyExpression>
@@ -33,20 +33,20 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.TimesheetDB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{375BB460-DF9A-4230-9B96-06F5557900CD}"
+      DTS:DTSID="{5D2271D4-4D13-4601-AEC6-B8D2345DAEFA}"
       DTS:ObjectName="LocalHost.TimesheetDB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=TimesheetDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Importing-{375BB460-DF9A-4230-9B96-06F5557900CD}LocalHost.TimesheetDB;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=TimesheetDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Importing-{5D2271D4-4D13-4601-AEC6-B8D2345DAEFA}LocalHost.TimesheetDB;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4AAB0456-F60D-4A38-B644-625AC7884A7F}"
+      DTS:DTSID="{E10BA695-0896-4977-B15A-2B8AF547862F}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FilePath">
@@ -55,7 +55,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C94226DE-21E0-4B17-BDFE-CFAA7FBCEFBE}"
+      DTS:DTSID="{910A58F5-BFED-4331-BABC-DBA3D1D436D2}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="SheetName">
@@ -64,7 +64,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{6BBF8053-EDBB-4DF9-9203-767EB49B237B}"
+      DTS:DTSID="{5AF77D94-A04B-4993-9667-C8697C1D7C86}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="SUBSTRING(&#xA;    @[User::FilePath],&#xA;    FINDSTRING(@[User::FilePath], &quot;\\&quot;, TOKENCOUNT(@[User::FilePath], &quot;\\&quot;) - 3) + 1,&#xA;    FINDSTRING(@[User::FilePath], &quot;\\&quot;, TOKENCOUNT(@[User::FilePath], &quot;\\&quot;) - 2) - FINDSTRING(@[User::FilePath], &quot;\\&quot;, TOKENCOUNT(@[User::FilePath], &quot;\\&quot;) - 3) - 1&#xA;)"
       DTS:IncludeInDebugDump="2345"
@@ -79,13 +79,13 @@
       DTS:refId="Package\Foreach Loop Container 1"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{6A88EE6F-AC1A-459E-B39A-A9D2F2102526}"
+      DTS:DTSID="{BDC82786-451D-456D-B36B-84FCFCE1D774}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container 1">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{E3080D77-83CA-4501-995A-0985A1B10F18}"
+        DTS:DTSID="{6E1EBCAB-5380-4E3E-99FE-58E35279E321}"
         DTS:ObjectName="{447DA7B4-5BAE-48CE-9514-741B3CC34CFD}">
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
@@ -106,7 +106,7 @@
           DTS:refId="Package\Foreach Loop Container 1\Leave"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{230551AC-7AFE-4461-BEC1-A682018E9844}"
+          DTS:DTSID="{49961D13-CE89-4FE0-B00C-94424F22C837}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Leave"
@@ -922,7 +922,7 @@
           DTS:refId="Package\Foreach Loop Container 1\LoadingTimesheets"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{3FA8470C-BB9E-4082-BCC2-27794DE17CA9}"
+          DTS:DTSID="{1EC29464-A821-4FC0-A18C-252FD4E3E1A0}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="LoadingTimesheets"
@@ -2392,7 +2392,7 @@
           DTS:refId="Package\Foreach Loop Container 1\Script Task"
           DTS:CreationName="Microsoft.ScriptTask"
           DTS:Description="Script Task"
-          DTS:DTSID="{677F7BF0-267B-4E88-B485-F3DBBFF64E18}"
+          DTS:DTSID="{6CECAF80-7651-4F34-8968-2CDA7F6D272A}"
           DTS:ExecutableType="Microsoft.ScriptTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Script Task"
@@ -3082,7 +3082,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{B18A0DCD-601D-47EF-94EC-BAD8CA0B8F84}"
+          DTS:DTSID="{103E1635-04E3-476D-B060-BEFBD8854BFB}"
           DTS:From="Package\Foreach Loop Container 1\Script Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -3090,7 +3090,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{003F2243-D25A-4A7E-99E9-0CF2EAE2A257}"
+          DTS:DTSID="{0DAFCAF3-714F-4294-95BC-4B2264557055}"
           DTS:From="Package\Foreach Loop Container 1\LoadingTimesheets"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -3099,7 +3099,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{324BFE16-D26E-4B88-AB62-16C6DEA279ED}"
+          DTS:DTSID="{B94BD253-AC54-4B9B-A58D-490498736083}"
           DTS:ObjectName="{2E062283-5A04-4F37-82BF-50C0D4634416}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FilePath" />
@@ -3110,7 +3110,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnError]"
       DTS:CreationName="OnError"
-      DTS:DTSID="{094EAC95-1956-469A-A512-1B4EFFD48C85}"
+      DTS:DTSID="{67A72842-69CB-4305-A235-2C63225BD361}"
       DTS:EventID="-1332342184"
       DTS:EventName="OnError"
       DTS:LocaleID="-1">
@@ -3118,7 +3118,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="The propagate property of the event"
-          DTS:DTSID="{28ACC9E4-0646-4FA8-9683-EE55D64198CE}"
+          DTS:DTSID="{52F77A98-9A4F-400C-81DC-1DB4635D5A03}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -3131,7 +3131,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{50FC5F91-693F-4F60-A13B-DEDD6BF1BE8C}"
+          DTS:DTSID="{F12B938D-6392-4634-82AE-9CEBE4DAD7B0}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task"
@@ -3139,7 +3139,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{375BB460-DF9A-4230-9B96-06F5557900CD}"
+              SQLTask:Connection="{5D2271D4-4D13-4601-AEC6-B8D2345DAEFA}"
               SQLTask:SqlStatementSource="INSERT INTO ErrorLog (FilePath, ErrorDescription)&#xA;VALUES (?, ?);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"

@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SAMBE2025006"
   DTS:CreatorName="SAMBE2025006\Keown Naidoo"
-  DTS:DTSID="{A5B5BF16-3C96-4EAB-A12F-855C653EECAB}"
+  DTS:DTSID="{24D78B6C-B394-4FBC-8EB8-591A3D20004F}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="7177"
-  DTS:ObjectName="ImportingV4"
+  DTS:ObjectName="ImportingV4-ErrorHandling"
   DTS:PackageType="5"
-  DTS:VersionBuild="115"
-  DTS:VersionGUID="{67C891BF-336E-4E6C-88B9-A984EF0044AF}">
+  DTS:VersionBuild="136"
+  DTS:VersionGUID="{4DCB154B-1E90-459A-A9A2-F6951BF8FD8F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,6 +28,18 @@
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=&quot;C:\Users\Keown Naidoo\Desktop\Timesheet-Data2\Keown\April.xlsx&quot;;Extended Properties=&quot;Excel 12.0 XML;HDR=NO&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{D010B33F-2CBB-4AFC-B567-2B88C5940A6E}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Keown Naidoo\Downloads\Mamello Lelaka Sambe Timesheet Final Week Apr '25.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=NO&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -79,6 +91,7 @@
       DTS:refId="Package\Foreach Loop Container 1"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
+      DTS:Disabled="True"
       DTS:DTSID="{55EE9BD3-9AF5-46D6-ADB5-329113FD594C}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
@@ -410,8 +423,7 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of F2]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           length="4000"
@@ -432,8 +444,7 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of F3]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           length="4000"
@@ -454,8 +465,7 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of F4]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           length="4000"
@@ -498,8 +508,7 @@
                         </outputColumn>
                         <outputColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of F6]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           length="4000"
@@ -523,11 +532,11 @@
                           codePage="1252"
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
+                          errorRowDisposition="RedirectRow"
                           length="4000"
                           lineageId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of F7]"
                           name="Copy of F7"
-                          truncationRowDisposition="FailComponent">
+                          truncationRowDisposition="RedirectRow">
                           <properties>
                             <property
                               containsID="true"
@@ -787,55 +796,6 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1"
-                  componentClassID="Microsoft.DerivedColumn"
-                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-                  name="Derived Column 1"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
-                      description="Input to the Derived Column Transformation"
-                      name="Derived Column Input">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]"
-                      description="Default Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      name="Derived Column Output"
-                      synchronousInputId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output]"
-                      description="Error Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Derived Column Error Output"
-                      synchronousInputId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
                   refId="Package\Foreach Loop Container 1\Data Flow Task\Excel Source"
                   componentClassID="Microsoft.ExcelSource"
                   contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -851,7 +811,7 @@
                     <property
                       dataType="System.String"
                       description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset"></property>
+                      name="OpenRowset">Apr$</property>
                     <property
                       dataType="System.String"
                       description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -869,7 +829,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">1</property>
+                      typeConverter="AccessMode">0</property>
                     <property
                       dataType="System.String"
                       description="The mapping from parameters in the SQL command to variables."
@@ -878,8 +838,8 @@
                   <connections>
                     <connection
                       refId="Package\Foreach Loop Container 1\Data Flow Task\Excel Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1009,8 +969,7 @@
                           name="F6" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[F7]"
-                          dataType="wstr"
-                          length="255"
+                          dataType="nText"
                           name="F7" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[F8]"
@@ -1077,8 +1036,7 @@
                           name="F6" />
                         <outputColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[F7]"
-                          dataType="wstr"
-                          length="255"
+                          dataType="nText"
                           lineageId="Package\Foreach Loop Container 1\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[F7]"
                           name="F7" />
                         <outputColumn
@@ -1147,6 +1105,219 @@
                       deleteOutputOnPathDetached="true"
                       name="Multicast Output 3"
                       synchronousInputId="Package\Foreach Loop Container 1\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO ErrorLog (FilePath, ErrorDescription)
+VALUES (?, ?);</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.TimesheetDB]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.TimesheetDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[FilePath]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FilePath"
+                          externalMetadataColumnId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[FilePath]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="255"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">193</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="OLE DB Command 1"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO ErrorLog (FilePath, ErrorDescription)
+VALUES ('Excel Source Error- No File path', ?);</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.TimesheetDB]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.TimesheetDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Foreach Loop Container 1\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">193</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
                       <externalMetadataColumns />
                     </output>
                   </outputs>
@@ -1231,8 +1402,7 @@
                           lineageId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of F1]" />
                         <inputColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of F3]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="4000"
                           cachedName="Copy of F3"
                           externalMetadataColumnId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Client]"
@@ -1255,24 +1425,21 @@
                           lineageId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of F7]" />
                         <inputColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of F2]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="4000"
                           cachedName="Copy of F2"
                           externalMetadataColumnId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DayOfWeek]"
                           lineageId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of F2]" />
                         <inputColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of F4]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="4000"
                           cachedName="Copy of F4"
                           externalMetadataColumnId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClientProjectName]"
                           lineageId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of F4]" />
                         <inputColumn
                           refId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of F6]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
+                          cachedDataType="wstr"
                           cachedLength="4000"
                           cachedName="Copy of F6"
                           externalMetadataColumnId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillableOrNonBillable]"
@@ -1603,6 +1770,11 @@
                   name="Conditional Split Default Output"
                   startId="Package\Foreach Loop Container 1\Data Flow Task\Conditional Split.Outputs[Conditional Split Default Output]" />
                 <path
+                  refId="Package\Foreach Loop Container 1\Data Flow Task.Paths[Data Conversion Error Output]"
+                  endId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input]"
+                  name="Data Conversion Error Output"
+                  startId="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]" />
+                <path
                   refId="Package\Foreach Loop Container 1\Data Flow Task.Paths[Data Conversion Output]"
                   endId="Package\Foreach Loop Container 1\Data Flow Task\Audit.Inputs[Audit Input 1]"
                   name="Data Conversion Output"
@@ -1614,7 +1786,7 @@
                   startId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Foreach Loop Container 1\Data Flow Task.Paths[Excel Source Error Output]"
-                  endId="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
+                  endId="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input]"
                   name="Excel Source Error Output"
                   startId="Package\Foreach Loop Container 1\Data Flow Task\Excel Source.Outputs[Excel Source Error Output]" />
                 <path
@@ -2471,35 +2643,14 @@
               ReadOnlyVariables="User::FilePath"
               ReadWriteVariables="User::SheetName,User::UserName">
               <ProjectItem
-                Name="Properties\AssemblyInfo.cs"
-                Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_5395513fde1a42e28d84335482caeb2f")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP")]
-[assembly: AssemblyProduct("ST_5395513fde1a42e28d84335482caeb2f")]
-[assembly: AssemblyCopyright("Copyright @ HP 2025")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.resx"
                 Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -2620,91 +2771,34 @@ using System.Runtime.CompilerServices;
   </resheader>
 </root>]]></ProjectItem>
               <ProjectItem
-                Name="ST_d5b1e87e3ddc465e86b3b8bba1f4f9e9.csproj"
-                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{057A8DE7-B9EE-4840-9EBF-03E36573F64E}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ST_5395513fde1a42e28d84335482caeb2f</RootNamespace>
-    <AssemblyName>ST_d5b1e87e3ddc465e86b3b8bba1f4f9e9</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
-    <TargetFrameworkProfile></TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>.\bin\Debug\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DebugSymbols>false</DebugSymbols>
-    <Optimize>true</Optimize>
-    <OutputPath>.\bin\Release\</OutputPath>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-  </ItemGroup>
-  <ItemGroup>
-    <AppDesigner Include="Properties\" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ScriptMain.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <!-- Include the build rules for a C# project.-->
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
-        <Host Name="ScriptTask" />
-        <ProjectClient>
-          <HostIdentifier>SSIS_ST160</HostIdentifier>
-        </ProjectClient>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-</Project>]]></ProjectItem>
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_5395513fde1a42e28d84335482caeb2f.Properties.Settings.get_Default():ST_5395513fde1a42e28d84335482caeb2f.Properties.Sett" +
+    "ings")]
+
+namespace ST_5395513fde1a42e28d84335482caeb2f.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
               <ProjectItem
                 Name="ScriptMain.cs"
                 Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -2897,43 +2991,121 @@ namespace ST_5395513fde1a42e28d84335482caeb2f
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.Designer.cs"
-                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_5395513fde1a42e28d84335482caeb2f.Properties.Settings.get_Default():ST_5395513fde1a42e28d84335482caeb2f.Properties.Sett" +
-    "ings")]
-
-namespace ST_5395513fde1a42e28d84335482caeb2f.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
+                Name="ST_d5b1e87e3ddc465e86b3b8bba1f4f9e9.csproj"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{057A8DE7-B9EE-4840-9EBF-03E36573F64E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_5395513fde1a42e28d84335482caeb2f</RootNamespace>
+    <AssemblyName>ST_d5b1e87e3ddc465e86b3b8bba1f4f9e9</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
               <ProjectItem
-                Name="Properties\Settings.settings"
-                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_5395513fde1a42e28d84335482caeb2f")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("HP")]
+[assembly: AssemblyProduct("ST_5395513fde1a42e28d84335482caeb2f")]
+[assembly: AssemblyCopyright("Copyright @ HP 2025")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
               <ProjectItem
                 Name="Properties\Resources.Designer.cs"
                 Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -3146,7 +3318,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{66A9A528-3010-406E-AD80-13A79624D3C4}"
+          DTS:DTSID="{289CD54B-B728-4103-BFB0-E097A68F2CF7}"
           DTS:From="Package\Foreach Loop Container 1\Script Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -3154,7 +3326,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{FB06BA60-76F1-42F6-B3BA-9034D35706B4}"
+          DTS:DTSID="{A66413AC-0886-4CF2-B765-F9C1A03C6FED}"
           DTS:From="Package\Foreach Loop Container 1\Data Flow Task"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -3236,31 +3408,31 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Foreach Loop Container 1\Data Flow Task"
-          TopLeft="109.966650867298,96.0666649249528" />
-        <NodeLayout
           Size="106.4,41.6"
           Id="Package\Foreach Loop Container 1\Leave"
-          TopLeft="122.066649637951,169.333331549433" />
+          TopLeft="132.066649091575,193.599998047352" />
         <NodeLayout
           Size="130.4,41.6"
           Id="Package\Foreach Loop Container 1\Script Task"
           TopLeft="114.966650594109,22.3999987705549" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Foreach Loop Container 1\Data Flow Task"
+          TopLeft="106.63331771609,107.333331513272" />
         <EdgeLayout
           Id="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint]"
-          TopLeft="182.666650730704,63.9999987705549">
+          TopLeft="180.9999841551,63.9999987705549">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.0666661543979"
+              EndConnector="0,43.3333327427175"
               Start="0,0"
-              End="0,24.5666661543979">
+              End="0,35.8333327427175">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.5666661543979" />
+                    End="0,35.8333327427175" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3271,30 +3443,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container 1.PrecedenceConstraints[Constraint 1]"
-          TopLeft="185.166650867298,137.666664924953">
+          TopLeft="183.549983403833,148.933331513272">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.90000122934657,31.6666666244797"
+              EndConnector="0,44.6666665340799"
               Start="0,0"
-              End="-9.90000122934657,24.1666666244797">
+              End="0,37.1666665340799">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.8333333122399" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.8333333122399"
-                    Point2="0,15.8333333122399"
-                    Point3="-4,15.8333333122399" />
-                  <mssgle:LineSegment
-                    End="-5.90000122934657,15.8333333122399" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.90000122934657,15.8333333122399"
-                    Point2="-9.90000122934657,15.8333333122399"
-                    Point3="-9.90000122934657,19.8333333122399" />
-                  <mssgle:LineSegment
-                    End="-9.90000122934657,24.1666666244797" />
+                    End="0,37.1666665340799" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3306,8 +3466,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="414.4,272.8"
-          Size="414.4,316"
+          PanelSize="414.4,290.4"
+          Size="414.4,333.6"
           Id="Package\Foreach Loop Container 1"
           TopLeft="189.666657833589,43.9833330274786" />
       </GraphLayout>
@@ -3333,15 +3493,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="140,41.6"
           Id="Package\Foreach Loop Container 1\Data Flow Task\Excel Source"
-          TopLeft="313.333316213556,43.3333330319987" />
+          TopLeft="313.333316213556,42.4666663713587" />
         <NodeLayout
           Size="156,41.6"
           Id="Package\Foreach Loop Container 1\Data Flow Task\Data Conversion"
           TopLeft="309.166649774545,316.333331133591" />
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Foreach Loop Container 1\Data Flow Task\Derived Column 1"
-          TopLeft="609.999990910292,123.999998152256" />
         <NodeLayout
           Size="119.2,41.6"
           Id="Package\Foreach Loop Container 1\Data Flow Task\Multicast"
@@ -3361,7 +3517,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         <NodeLayout
           Size="180,41.6"
           Id="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Destination 1"
-          TopLeft="549.999969949326,557.399996546706" />
+          TopLeft="440.833309247263,553.933329904146" />
         <NodeLayout
           Size="153.6,41.6"
           Id="Package\Foreach Loop Container 1\Data Flow Task\Conditional Split"
@@ -3372,26 +3528,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="218.533322041565,58.2666661724779"
+              EndConnector="109.366661339501,54.799999529918"
               Start="0,0"
-              End="218.533322041565,50.7666661724779">
+              End="109.366661339501,47.299999529918">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7697128226797" />
+                    End="0,18.3554964969732" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.7697128226797"
-                    Point2="0,23.7697128226797"
-                    Point3="4,23.7697128226797" />
+                    Point1="0,18.3554964969732"
+                    Point2="0,22.3554964969732"
+                    Point3="4,22.3554964969732" />
                   <mssgle:LineSegment
-                    End="214.533322041565,23.7697128226797" />
+                    End="105.366661339501,22.3554964969732" />
                   <mssgle:CubicBezierSegment
-                    Point1="214.533322041565,23.7697128226797"
-                    Point2="218.533322041565,23.7697128226797"
-                    Point3="218.533322041565,27.7697128226797" />
+                    Point1="105.366661339501,22.3554964969732"
+                    Point2="109.366661339501,22.3554964969732"
+                    Point3="109.366661339501,26.3554964969732" />
                   <mssgle:LineSegment
-                    End="218.533322041565,50.7666661724779" />
+                    End="109.366661339501,47.299999529918" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3436,30 +3592,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Excel Source Output]"
-          TopLeft="361.333316213556,84.9333330319987">
+          TopLeft="361.333316213556,84.0666663713587">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16.300000682969,52.8666660097573"
+              EndConnector="16.300000682969,53.7333326703973"
               Start="0,0"
-              End="16.300000682969,45.3666660097573">
+              End="16.300000682969,46.2333326703973">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.5050844785453" />
+                    End="0,17.8576268489752" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.5050844785453"
-                    Point2="0,21.5050844785453"
-                    Point3="4,21.5050844785453" />
+                    Point1="0,17.8576268489752"
+                    Point2="0,21.8576268489752"
+                    Point3="4,21.8576268489752" />
                   <mssgle:LineSegment
-                    End="12.300000682969,21.5050844785453" />
+                    End="12.300000682969,21.8576268489752" />
                   <mssgle:CubicBezierSegment
-                    Point1="12.300000682969,21.5050844785453"
-                    Point2="16.300000682969,21.5050844785453"
-                    Point3="16.300000682969,25.5050844785453" />
+                    Point1="12.300000682969,21.8576268489752"
+                    Point2="16.300000682969,21.8576268489752"
+                    Point3="16.300000682969,25.8576268489752" />
                   <mssgle:LineSegment
-                    End="16.300000682969,45.3666660097573" />
+                    End="16.300000682969,46.2333326703973" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3469,55 +3625,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Excel Source Error Output]"
-          TopLeft="405.333316213556,84.9333330319987">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="285.466674696736,39.0666651202574"
-              Start="0,0"
-              End="285.466674696736,31.5666651202574">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.891524794681" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.891524794681"
-                    Point2="0,15.891524794681"
-                    Point3="4,15.891524794681" />
-                  <mssgle:LineSegment
-                    End="281.466674696736,15.891524794681" />
-                  <mssgle:CubicBezierSegment
-                    Point1="281.466674696736,15.891524794681"
-                    Point2="285.466674696736,15.891524794681"
-                    Point3="285.466674696736,19.891524794681" />
-                  <mssgle:LineSegment
-                    End="285.466674696736,31.5666651202574" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="84.881950629618,20.891524794681,115.7027734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="385.949983130645,271.266665069593">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45.0666660639972"
+              EndConnector="0,45.066666063998"
               Start="0,0"
-              End="0,37.5666660639972">
+              End="0,37.566666063998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5666660639972" />
+                    End="0,37.566666063998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3532,26 +3652,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="13.6999980876849,33.4628261376362"
+              EndConnector="13.6999980876849,33.462826137636"
               Start="0,0"
-              End="13.6999980876849,25.9628261376362">
+              End="13.6999980876849,25.962826137636">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.7314130688181" />
+                    End="0,12.731413068818" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.7314130688181"
-                    Point2="0,16.7314130688181"
-                    Point3="4,16.7314130688181" />
+                    Point1="0,12.731413068818"
+                    Point2="0,16.731413068818"
+                    Point3="4,16.731413068818" />
                   <mssgle:LineSegment
-                    End="9.69999808768489,16.7314130688181" />
+                    End="9.69999808768495,16.731413068818" />
                   <mssgle:CubicBezierSegment
-                    Point1="9.69999808768489,16.7314130688181"
-                    Point2="13.6999980876849,16.7314130688181"
-                    Point3="13.6999980876849,20.7314130688181" />
+                    Point1="9.69999808768495,16.731413068818"
+                    Point2="13.6999980876849,16.731413068818"
+                    Point3="13.6999980876849,20.731413068818" />
                   <mssgle:LineSegment
-                    End="13.6999980876849,25.9628261376362" />
+                    End="13.6999980876849,25.962826137636" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3618,6 +3738,86 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command"
+          TopLeft="607.499966807665,470.399997468789" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Data Conversion Error Output]"
+          TopLeft="411.833316441212,357.933331133591">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="279.266650366453,112.466666335198"
+              Start="0,0"
+              End="279.266650366453,104.966666335198">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.6717426741922" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.6717426741922"
+                    Point2="0,45.6717426741922"
+                    Point3="4,45.6717426741922" />
+                  <mssgle:LineSegment
+                    End="275.266650366453,45.6717426741922" />
+                  <mssgle:CubicBezierSegment
+                    Point1="275.266650366453,45.6717426741922"
+                    Point2="279.266650366453,45.6717426741922"
+                    Point3="279.266650366453,49.6717426741922" />
+                  <mssgle:LineSegment
+                    End="279.266650366453,104.966666335198" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="64.6782861207267,50.6717426741922,149.910078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Foreach Loop Container 1\Data Flow Task\OLE DB Command 1"
+          TopLeft="602.499967080853,119.599999168317" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container 1\Data Flow Task.Paths[Excel Source Error Output]"
+          TopLeft="405.333316213556,84.0666663713587">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="285.166650867297,35.5333327969578"
+              Start="0,0"
+              End="285.166650867297,28.0333327969578">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.4542370699489" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.4542370699489"
+                    Point2="0,14.4542370699489"
+                    Point3="4,14.4542370699489" />
+                  <mssgle:LineSegment
+                    End="281.166650867297,14.4542370699489" />
+                  <mssgle:CubicBezierSegment
+                    Point1="281.166650867297,14.4542370699489"
+                    Point2="285.166650867297,14.4542370699489"
+                    Point3="285.166650867297,18.4542370699489" />
+                  <mssgle:LineSegment
+                    End="285.166650867297,28.0333327969578" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="84.7319387148984,19.4542370699489,115.7027734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -3626,6 +3826,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
