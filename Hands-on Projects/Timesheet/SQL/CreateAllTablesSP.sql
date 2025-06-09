@@ -1,8 +1,5 @@
-
 USE [TimesheetDB]
 GO
-
-drop table Timesheet
 
 
 CREATE PROCEDURE CreateAllTables
@@ -17,41 +14,23 @@ BEGIN
     IF OBJECT_ID('dbo.Leave', 'U') IS NOT NULL DROP TABLE dbo.Leave;
     IF OBJECT_ID('dbo.ErrorLog', 'U') IS NOT NULL DROP TABLE dbo.ErrorLog;
     IF OBJECT_ID('dbo.AuditLog', 'U') IS NOT NULL DROP TABLE dbo.AuditLog;
-	--Staging table
-	CREATE TABLE [dbo].[Staging] (
+
+    --Staging table
+    CREATE TABLE [dbo].[Staging] (
         [TimeSheetID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
         [EmployeeName] NVARCHAR(100) NULL,
         [Date] DATE NULL,
         [DayOfWeek] NVARCHAR(255) NULL,
         [Client] NVARCHAR(255) NULL,
         [ClientProjectName] NVARCHAR(100) NULL,
-        [Description] TEXT NULL,
+        [Description] NVARCHAR(MAX) NULL,
         [BillableOrNonBillable] NVARCHAR(20) NULL,
-        [Comments] TEXT NULL,
+        [Comments] NVARCHAR(MAX) NULL,
         [TotalHours] INT NULL,
         [StartTime] time NULL,
         [EndTime] time NULL,
         CONSTRAINT UQ_Staging_UniqueEntry1 UNIQUE ([EmployeeName], [Date], [StartTime], [EndTime])
     );
-
-    -- Create Timesheet table
-    CREATE TABLE [dbo].[Timesheet] (
-        [TimeSheetID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-        [EmployeeID] INT NOT NULL,
-        [Date] DATE NOT NULL,
-        [DayOfWeek] NVARCHAR(255) NOT NULL,
-        [ClientID] INT NOT NULL,
-        [ClientProjectName] NVARCHAR(100) NOT NULL,
-        [Description] TEXT NULL,
-        [BillableOrNonBillable] NVARCHAR(20) NOT NULL,
-        [Comments] NVARCHAR(MAX) NULL,
-        [TotalHours] DECIMAL(5,2) NULL,
-        [StartTime] time NULL,
-        [EndTime] time NULL,
-        CONSTRAINT UQ_Timesheet_UniqueEntry3 UNIQUE ([EmployeeID], [Date], [StartTime], [EndTime])
-    );
-
-	
 
     -- Create Client table
     CREATE TABLE [dbo].[Client] (
@@ -64,6 +43,25 @@ BEGIN
         [ID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
         [EmployeeName] NVARCHAR(100) NULL,
         CONSTRAINT UC_Employee_EmployeeName UNIQUE ([ID], [EmployeeName])
+    );
+
+    -- Create Timesheet table
+    CREATE TABLE [dbo].[Timesheet] (
+        [TimeSheetID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+        [EmployeeID] INT NOT NULL,
+        [Date] DATE NOT NULL,
+        [DayOfWeek] NVARCHAR(255) NOT NULL,
+        [ClientID] INT NOT NULL,
+        [ClientProjectName] NVARCHAR(100) NOT NULL,
+        [Description] NVARCHAR(MAX) NULL,
+        [BillableOrNonBillable] NVARCHAR(20) NOT NULL,
+        [Comments] NVARCHAR(MAX) NULL,
+        [TotalHours] DECIMAL(5,2) NULL,
+        [StartTime] time NULL,
+        [EndTime] time NULL,
+        CONSTRAINT UQ_Timesheet_UniqueEntry3 UNIQUE ([EmployeeID], [Date], [StartTime], [EndTime]),
+        CONSTRAINT FK_Timesheet_Employee FOREIGN KEY ([EmployeeID]) REFERENCES [dbo].[Employee]([ID]),
+        CONSTRAINT FK_Timesheet_Client FOREIGN KEY ([ClientID]) REFERENCES [dbo].[Client]([ClientID])
     );
 
     -- Create Leave table
