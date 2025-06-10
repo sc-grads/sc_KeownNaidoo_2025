@@ -7,6 +7,9 @@ SELECT *
   SELECT*
   FROM [TimesheetDB].[dbo].[Employee]
 
+   SELECT*
+  FROM [dbo].[Leave]
+
   Truncate table [dbo].[AuditLog]
 Truncate table [dbo].[ErrorLog]
 Truncate table [dbo].[Staging]
