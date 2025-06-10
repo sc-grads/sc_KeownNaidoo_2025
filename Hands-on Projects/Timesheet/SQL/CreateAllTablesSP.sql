@@ -67,15 +67,17 @@ BEGIN
     -- Create Leave table
     CREATE TABLE [dbo].[Leave] (
         [LeaveID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-        [EmployeeName] NVARCHAR(100) NULL,
+        [EmployeeID] INT NULL,
         [TypeOfLeave] NVARCHAR(50) NULL,
         [StartDate] DATE NULL,
         [EndDate] DATE NULL,
         [NumberOfDays] INT NULL,
         [ApprovalObtained] NVARCHAR(50) NULL,
         [SickNote] NVARCHAR(50) NULL,
-        CONSTRAINT UC_Leave UNIQUE ([EmployeeName], [TypeOfLeave], [StartDate], [EndDate])
+        CONSTRAINT UC_Leave UNIQUE ([EmployeeID], [TypeOfLeave], [StartDate], [EndDate]),
+		CONSTRAINT FK_Leave_Employee FOREIGN KEY ([EmployeeID]) REFERENCES [dbo].[Employee]([ID]),
     );
+
 
     -- Create ErrorLog table
     CREATE TABLE ErrorLog (
