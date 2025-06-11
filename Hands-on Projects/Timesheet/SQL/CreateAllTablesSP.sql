@@ -8,29 +8,13 @@ BEGIN
     SET NOCOUNT ON;
 
     -- Drop existing tables if they exist
-    IF OBJECT_ID('dbo.Timesheet', 'U') IS NOT NULL DROP TABLE dbo.Timesheet;
-    IF OBJECT_ID('dbo.Client', 'U') IS NOT NULL DROP TABLE dbo.Client;
-    IF OBJECT_ID('dbo.Employee', 'U') IS NOT NULL DROP TABLE dbo.Employee;
+    IF OBJECT_ID('dbo.Timesheet', 'U') IS NOT NULL DROP TABLE dbo.Timesheet;    
     IF OBJECT_ID('dbo.Leave', 'U') IS NOT NULL DROP TABLE dbo.Leave;
     IF OBJECT_ID('dbo.ErrorLog', 'U') IS NOT NULL DROP TABLE dbo.ErrorLog;
     IF OBJECT_ID('dbo.AuditLog', 'U') IS NOT NULL DROP TABLE dbo.AuditLog;
+	IF OBJECT_ID('dbo.Client', 'U') IS NOT NULL DROP TABLE dbo.Client;
+	IF OBJECT_ID('dbo.Employee', 'U') IS NOT NULL DROP TABLE dbo.Employee;
 
-    --Staging table
-    CREATE TABLE [dbo].[Staging] (
-        [TimeSheetID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-        [EmployeeName] NVARCHAR(100) NULL,
-        [Date] DATE NULL,
-        [DayOfWeek] NVARCHAR(255) NULL,
-        [Client] NVARCHAR(255) NULL,
-        [ClientProjectName] NVARCHAR(100) NULL,
-        [Description] NVARCHAR(MAX) NULL,
-        [BillableOrNonBillable] NVARCHAR(20) NULL,
-        [Comments] NVARCHAR(MAX) NULL,
-        [TotalHours] INT NULL,
-        [StartTime] time NULL,
-        [EndTime] time NULL,
-        CONSTRAINT UQ_Staging_UniqueEntry1 UNIQUE ([EmployeeName], [Date], [StartTime], [EndTime])
-    );
 
     -- Create Client table
     CREATE TABLE [dbo].[Client] (
