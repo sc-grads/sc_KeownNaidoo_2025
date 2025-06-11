@@ -11,11 +11,23 @@
   DTS:LocaleID="7177"
   DTS:ObjectName="ClientAndEmployeeExctraction"
   DTS:PackageType="5"
-  DTS:VersionBuild="97"
-  DTS:VersionGUID="{A977FF11-2ED5-4DC4-AEE1-DB0D79BD7653}">
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{498A11C4-F0EC-48FB-98A6-66F72ACFC13E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{DEB05E98-A465-4B5F-89E5-9A6CCEFF8050}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Keown Naidoo\Desktop\Timesheet-Data3\Keown\April\April.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=NO&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager 2]"
       DTS:CreationName="EXCEL"
@@ -61,7 +73,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="FilePath">
       <DTS:VariableValue
-        DTS:DataType="8">"C:\Users\Keown Naidoo\Desktop\Timesheet-Data\Keown\April\April.xlsx"</DTS:VariableValue>
+        DTS:DataType="8">"C:\Users\Keown Naidoo\Desktop\Timesheet-Data3\Keown\April\April.xlsx"</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -490,6 +502,96 @@
               </outputs>
             </component>
             <component
+              refId="Package\Loading Employees and Clients\Conditional Split 1"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Loading Employees and Clients\Conditional Split 1.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading Employees and Clients\Conditional Split 1.Inputs[Conditional Split Input].Columns[Client]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Client"
+                      lineageId="Package\Loading Employees and Clients\Excel Source.Outputs[Excel Source Output].Columns[Client]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading Employees and Clients\Conditional Split 1.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\Loading Employees and Clients\Conditional Split 1.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\Loading Employees and Clients\Excel Source.Outputs[Excel Source Output].Columns[Client]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(Client)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Loading Employees and Clients\Conditional Split 1.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Loading Employees and Clients\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Loading Employees and Clients\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Loading Employees and Clients\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Employees and Clients\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading Employees and Clients\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading Employees and Clients\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading Employees and Clients\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Loading Employees and Clients\Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -631,8 +733,8 @@
               <connections>
                 <connection
                   refId="Package\Loading Employees and Clients\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 2]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1024,7 +1126,7 @@ where [refTable].[ClientName] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -1093,10 +1195,26 @@ where [refTable].[ClientName] = ?</property>
                 <output
                   refId="Package\Loading Employees and Clients\Lookup.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Loading Employees and Clients\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Employees and Clients\Lookup.Outputs[Lookup Match Output].Columns[ClientName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\Loading Employees and Clients\Lookup.Outputs[Lookup Match Output].Columns[ClientName]"
+                      name="ClientName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ClientName</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -1167,7 +1285,7 @@ where [refTable].[EmployeeName] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -1236,10 +1354,26 @@ where [refTable].[EmployeeName] = ?</property>
                 <output
                   refId="Package\Loading Employees and Clients\Lookup 1.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\Loading Employees and Clients\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading Employees and Clients\Lookup 1.Outputs[Lookup Match Output].Columns[EmployeeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\Loading Employees and Clients\Lookup 1.Outputs[Lookup Match Output].Columns[EmployeeName]"
+                      name="EmployeeName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">EmployeeName</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -1296,13 +1430,6 @@ where [refTable].[EmployeeName] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Loading Employees and Clients\Multicast.Outputs[Multicast Output 2]"
-                  deleteOutputOnPathDetached="true"
-                  name="Multicast Output 2"
-                  synchronousInputId="Package\Loading Employees and Clients\Multicast.Inputs[Multicast Input 1]">
-                  <externalMetadataColumns />
-                </output>
-                <output
                   refId="Package\Loading Employees and Clients\Multicast.Outputs[Multicast Output 4]"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 4"
@@ -1311,9 +1438,16 @@ where [refTable].[EmployeeName] = ?</property>
                 </output>
                 <output
                   refId="Package\Loading Employees and Clients\Multicast.Outputs[Multicast Output 1]"
-                  dangling="true"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 1"
+                  synchronousInputId="Package\Loading Employees and Clients\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Loading Employees and Clients\Multicast.Outputs[Multicast Output 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
                   synchronousInputId="Package\Loading Employees and Clients\Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
@@ -1331,6 +1465,11 @@ where [refTable].[EmployeeName] = ?</property>
               endId="Package\Loading Employees and Clients\Lookup 1.Inputs[Lookup Input]"
               name="Case 1"
               startId="Package\Loading Employees and Clients\Conditional Split.Outputs[Case 1]" />
+            <path
+              refId="Package\Loading Employees and Clients.Paths[Case 11]"
+              endId="Package\Loading Employees and Clients\Lookup.Inputs[Lookup Input]"
+              name="Case 1"
+              startId="Package\Loading Employees and Clients\Conditional Split 1.Outputs[Case 1]" />
             <path
               refId="Package\Loading Employees and Clients.Paths[Derived Column Output]"
               endId="Package\Loading Employees and Clients\Audit.Inputs[Audit Input 1]"
@@ -1352,10 +1491,10 @@ where [refTable].[EmployeeName] = ?</property>
               name="Lookup No Match Output"
               startId="Package\Loading Employees and Clients\Lookup 1.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\Loading Employees and Clients.Paths[Multicast Output 2]"
-              endId="Package\Loading Employees and Clients\Lookup.Inputs[Lookup Input]"
-              name="Multicast Output 2"
-              startId="Package\Loading Employees and Clients\Multicast.Outputs[Multicast Output 2]" />
+              refId="Package\Loading Employees and Clients.Paths[Multicast Output 1]"
+              endId="Package\Loading Employees and Clients\Conditional Split 1.Inputs[Conditional Split Input]"
+              name="Multicast Output 1"
+              startId="Package\Loading Employees and Clients\Multicast.Outputs[Multicast Output 1]" />
             <path
               refId="Package\Loading Employees and Clients.Paths[Multicast Output 3]"
               endId="Package\Loading Employees and Clients\Conditional Split.Inputs[Conditional Split Input]"
@@ -1439,15 +1578,43 @@ where [refTable].[EmployeeName] = ?</property>
         <NodeLayout
           Size="224.8,41.6"
           Id="Package\Loading Employees and Clients"
-          TopLeft="328.333315393992,93.5999993491173" />
+          TopLeft="279.166651413673,100.533332634237" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="340.999994918704,206.99999691546" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\Loading Employees and Clients">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Loading Employees and Clients\Conditional Split"
+          TopLeft="514.999971861642,345.222219821589" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Loading Employees and Clients\Inserting to Employee Table"
+          TopLeft="492.499973090988,526.355551895345" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Loading Employees and Clients\Derived Column"
+          TopLeft="337.962944497482,63.5555551135981" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Loading Employees and Clients\Inserting to Client table"
+          TopLeft="88.3333285070132,472.622218935666" />
         <NodeLayout
           Size="140,41.6"
           Id="Package\Loading Employees and Clients\Excel Source"
@@ -1455,221 +1622,41 @@ where [refTable].[EmployeeName] = ?</property>
         <NodeLayout
           Size="119.2,41.6"
           Id="Package\Loading Employees and Clients\Multicast"
-          TopLeft="354.166647315854,197.022220852154" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Loading Employees and Clients\Inserting to Employee Table"
-          TopLeft="502.499972544612,521.155551931505" />
-        <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\Loading Employees and Clients\Inserting to Client table"
-          TopLeft="156.666658106778,422.355552618548" />
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\Loading Employees and Clients\Conditional Split"
-          TopLeft="514.999971861642,345.222219821589" />
-        <EdgeLayout
-          Id="Package\Loading Employees and Clients.Paths[Multicast Output 3]"
-          TopLeft="432.299980649187,238.622220852154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="159.499991212455,106.599998969436"
-              Start="0,0"
-              End="159.499991212455,99.0999989694356">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.4871518974651" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.4871518974651"
-                    Point2="0,43.4871518974651"
-                    Point3="4,43.4871518974651" />
-                  <mssgle:LineSegment
-                    End="155.499991212455,43.4871518974651" />
-                  <mssgle:CubicBezierSegment
-                    Point1="155.499991212455,43.4871518974651"
-                    Point2="159.499991212455,43.4871518974651"
-                    Point3="159.499991212455,47.4871518974651" />
-                  <mssgle:LineSegment
-                    End="159.499991212455,99.0999989694356" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Loading Employees and Clients\Lookup"
-          TopLeft="220.833321267532,298.555553612952" />
-        <EdgeLayout
-          Id="Package\Loading Employees and Clients.Paths[Multicast Output 2]"
-          TopLeft="395.233313982521,238.622220852154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-117.999992714988,59.9333327607974"
-              Start="0,0"
-              End="-117.999992714988,52.4333327607974">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.4496244904975" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.4496244904975"
-                    Point2="0,24.4496244904975"
-                    Point3="-4,24.4496244904975" />
-                  <mssgle:LineSegment
-                    End="-113.999992714988,24.4496244904975" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-113.999992714988,24.4496244904975"
-                    Point2="-117.999992714988,24.4496244904975"
-                    Point3="-117.999992714988,28.4496244904975" />
-                  <mssgle:LineSegment
-                    End="-117.999992714988,52.4333327607974" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loading Employees and Clients.Paths[Lookup No Match Output]"
-          TopLeft="277.233321267532,340.155553612952">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-28.1666631607548,82.1999990055958"
-              Start="0,0"
-              End="-28.1666631607548,74.6999990055958">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.0999995027979" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,37.0999995027979"
-                    Point2="0,41.0999995027979"
-                    Point3="-4,41.0999995027979" />
-                  <mssgle:LineSegment
-                    End="-24.1666631607548,41.0999995027979" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-24.1666631607548,41.0999995027979"
-                    Point2="-28.1666631607548,41.0999995027979"
-                    Point3="-28.1666631607548,45.0999995027979" />
-                  <mssgle:LineSegment
-                    End="-28.1666631607548,74.6999990055958" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-69.8897182991274,46.0999995027979,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="120.8,41.6"
-          Id="Package\Loading Employees and Clients\Lookup 1"
-          TopLeft="519.166638300652,421.422219514229" />
-        <EdgeLayout
-          Id="Package\Loading Employees and Clients.Paths[Case 1]"
-          TopLeft="591.799971861642,386.822219821589">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-12.2333335609901,34.5999996926392"
-              Start="0,0"
-              End="-12.2333335609901,27.0999996926392">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.2999998463196" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.2999998463196"
-                    Point2="0,17.2999998463196"
-                    Point3="-4,17.2999998463196" />
-                  <mssgle:LineSegment
-                    End="-8.2333335609901,17.2999998463196" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8.2333335609901,17.2999998463196"
-                    Point2="-12.2333335609901,17.2999998463196"
-                    Point3="-12.2333335609901,21.2999998463196" />
-                  <mssgle:LineSegment
-                    End="-12.2333335609901,27.0999996926392" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-21.3347527179951,22.2999998463196,30.436171875,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loading Employees and Clients.Paths[Lookup No Match Output1]"
-          TopLeft="579.566638300652,463.022219514229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="26.9333342439602,58.1333324172759"
-              Start="0,0"
-              End="26.9333342439602,50.6333324172759">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.0666662086379" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.0666662086379"
-                    Point2="0,29.0666662086379"
-                    Point3="4,29.0666662086379" />
-                  <mssgle:LineSegment
-                    End="22.9333342439602,29.0666662086379" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.9333342439602,29.0666662086379"
-                    Point2="26.9333342439602,29.0666662086379"
-                    Point3="26.9333342439602,33.0666662086379" />
-                  <mssgle:LineSegment
-                    End="26.9333342439602,50.6333324172759" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-42.3397195967699,34.0666662086379,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="333.333315120804,262.022220400152" />
         <NodeLayout
           Size="102.4,41.6"
           Id="Package\Loading Employees and Clients\Audit"
           TopLeft="362.037017256206,129.999999095996" />
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\Loading Employees and Clients\AuditLog"
+          TopLeft="639.814779856876,215.703702203727" />
         <EdgeLayout
-          Id="Package\Loading Employees and Clients.Paths[Audit Output 1]"
-          TopLeft="413.50183228603,171.599999095996">
+          Id="Package\Loading Employees and Clients.Paths[Multicast Output 3]"
+          TopLeft="411.466648454137,303.622220400152">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,25.4222217561583"
+              EndConnector="180.333323407505,41.5999994214369"
               Start="0,0"
-              End="0,17.9222217561583">
+              End="180.333323407505,34.0999994214369">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.9222217561583" />
+                    End="0,12.970595790467" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.970595790467"
+                    Point2="0,16.970595790467"
+                    Point3="4,16.970595790467" />
+                  <mssgle:LineSegment
+                    End="176.333323407505,16.970595790467" />
+                  <mssgle:CubicBezierSegment
+                    Point1="176.333323407505,16.970595790467"
+                    Point2="180.333323407505,16.970595790467"
+                    Point3="180.333323407505,20.970595790467" />
+                  <mssgle:LineSegment
+                    End="180.333323407505,34.0999994214369" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1678,14 +1665,6 @@ where [refTable].[EmployeeName] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="119.2,41.6"
-          Id="Package\Loading Employees and Clients\AuditLog"
-          TopLeft="639.814779856876,215.703702203727" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Loading Employees and Clients\Derived Column"
-          TopLeft="337.962944497482,63.5555551135981" />
         <EdgeLayout
           Id="Package\Loading Employees and Clients.Paths[Excel Source Output]"
           TopLeft="340.277759185821,22.5333333212799">
@@ -1744,30 +1723,30 @@ where [refTable].[EmployeeName] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Loading Employees and Clients.Paths[Multicast Output 4]"
-          TopLeft="473.366647315854,217.822220852154">
+          TopLeft="452.533315120804,282.822220400152">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="166.448132541022,18.6814813515726"
+              EndConnector="187.281464736072,-46.3185181964251"
               Start="0,0"
-              End="158.948132541022,18.6814813515726">
+              End="179.781464736072,-46.3185181964251">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="79.224066270511,0" />
+                    End="89.6407323680361,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="79.224066270511,0"
-                    Point2="83.224066270511,0"
-                    Point3="83.224066270511,4" />
+                    Point1="89.6407323680361,0"
+                    Point2="93.6407323680361,0"
+                    Point3="93.6407323680361,-4" />
                   <mssgle:LineSegment
-                    End="83.224066270511,14.6814813515726" />
+                    End="93.6407323680361,-42.3185181964251" />
                   <mssgle:CubicBezierSegment
-                    Point1="83.224066270511,14.6814813515726"
-                    Point2="83.224066270511,18.6814813515726"
-                    Point3="87.224066270511,18.6814813515726" />
+                    Point1="93.6407323680361,-42.3185181964251"
+                    Point2="93.6407323680361,-46.3185181964251"
+                    Point3="97.6407323680361,-46.3185181964251" />
                   <mssgle:LineSegment
-                    End="158.948132541022,18.6814813515726" />
+                    End="179.781464736072,-46.3185181964251" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1776,11 +1755,199 @@ where [refTable].[EmployeeName] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading Employees and Clients.Paths[Audit Output 1]"
+          TopLeft="413.237017256206,171.599999095996">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.3037021354022,90.4222213041561"
+              Start="0,0"
+              End="-20.3037021354022,82.9222213041561">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.211110652078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.211110652078"
+                    Point2="0,45.211110652078"
+                    Point3="-4,45.211110652078" />
+                  <mssgle:LineSegment
+                    End="-16.3037021354022,45.211110652078" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.3037021354022,45.211110652078"
+                    Point2="-20.3037021354022,45.211110652078"
+                    Point3="-20.3037021354022,49.211110652078" />
+                  <mssgle:LineSegment
+                    End="-20.3037021354022,82.9222213041561" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Loading Employees and Clients\Lookup"
+          TopLeft="124.999993170301,365.733330790069" />
+        <EdgeLayout
+          Id="Package\Loading Employees and Clients.Paths[Lookup No Match Output]"
+          TopLeft="181.066660838657,407.333330790069">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.2888881455966"
+              Start="0,0"
+              End="0,57.7888881455966">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.7888881455966" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,23.0897565727983,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Loading Employees and Clients\Lookup 1"
+          TopLeft="525.833304603068,437.666663623187" />
+        <EdgeLayout
+          Id="Package\Loading Employees and Clients.Paths[Case 1]"
+          TopLeft="589.016638232355,386.822219821589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.8444438015983"
+              Start="0,0"
+              End="0,43.3444438015983">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.3444438015983" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,16.8953664320491,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading Employees and Clients.Paths[Lookup No Match Output1]"
+          TopLeft="586.233304603068,479.266663623187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.2666684879199,47.0888882721574"
+              Start="0,0"
+              End="10.2666684879199,39.5888882721574">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5444441360787" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5444441360787"
+                    Point2="0,23.5444441360787"
+                    Point3="4,23.5444441360787" />
+                  <mssgle:LineSegment
+                    End="6.2666684879199,23.5444441360787" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.2666684879199,23.5444441360787"
+                    Point2="10.2666684879199,23.5444441360787"
+                    Point3="10.2666684879199,27.5444441360787" />
+                  <mssgle:LineSegment
+                    End="10.2666684879199,39.5888882721574" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-50.67305247479,28.5444441360787,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Loading Employees and Clients\Conditional Split 1"
+          TopLeft="100.833327824043,287.733331332472" />
+        <EdgeLayout
+          Id="Package\Loading Employees and Clients.Paths[Multicast Output 1]"
+          TopLeft="333.333315120804,282.822220400152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-70.0999872967607,25.7111109323196"
+              Start="0,0"
+              End="-62.5999872967607,25.7111109323196">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-31.0499936483803,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.0499936483803,0"
+                    Point2="-35.0499936483803,0"
+                    Point3="-35.0499936483803,4" />
+                  <mssgle:LineSegment
+                    End="-35.0499936483803,21.7111109323196" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-35.0499936483803,21.7111109323196"
+                    Point2="-35.0499936483803,25.7111109323196"
+                    Point3="-39.0499936483803,25.7111109323196" />
+                  <mssgle:LineSegment
+                    End="-62.5999872967607,25.7111109323196" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading Employees and Clients.Paths[Case 11]"
+          TopLeft="181.716660497172,329.333331332472">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.3999994575976"
+              Start="0,0"
+              End="0,28.8999994575976">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.8999994575976" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,9.67314426004882,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Loading Employees and Clients\Inserting to Client table">
+    design-time-name="Package\Loading Employees and Clients\Inserting to Employee Table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1793,7 +1960,7 @@ where [refTable].[EmployeeName] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Loading Employees and Clients\Inserting to Employee Table">
+    design-time-name="Package\Loading Employees and Clients\Inserting to Client table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1818,18 +1985,19 @@ where [refTable].[EmployeeName] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package.EventHandlers[OnError]\Execute SQL Task"
-          TopLeft="340.999994918704,206.99999691546" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading Employees and Clients\AuditLog">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Loading Employees and Clients\Lookup">
     <Properties>
@@ -1873,19 +2041,6 @@ where [refTable].[EmployeeName] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Loading Employees and Clients\AuditLog">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
