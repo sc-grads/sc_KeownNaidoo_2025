@@ -29,6 +29,7 @@
 *.opensdf
 *.sdf
 *.VC.db
+.vs/
 
 # Build results
 [Bb]in/
