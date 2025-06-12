@@ -26,12 +26,12 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">SAMBE2025006</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAWTbmRTJpSE2Zy7lEObUSYAAAAAACAAAAAAAQZgAAAAEAACAAAAAJBY3Nmc4FOPY1GLjQKCHq3CAblWN78s6XuvJv8NvoQAAAAAAOgAAAAAIAACAAAADWNxDP1RfEew0EaAWpZ3E0hWGAwZSQFQmohqi1NrzX2pAAAAD28OfVQvgxmGqRoRYJdAj5vghzMsTXPbVQ7IWt50al6tVerhRzQJ8grthzZUfw1mK4qcm9a07sIeofFGiYZJTiWHtAY+JzfDg4oizGJ5W45fmdot2hSazew6e7D2uLKn5A1HNbGvhAXHFMT5mXsEm83GA3LX88Khc/3+7XLJHBcIabATJlvgevPMPCFmM0t1lAAAAASyv+9iReCpbvIStACWBjWf2QmyQfV5/+Z8le2OHu7a0SL9fkZ0t3yd3XIv1c8pUYIZjh7DdWn4s7zv0TRRklUA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAWTbmRTJpSE2Zy7lEObUSYAAAAAACAAAAAAAQZgAAAAEAACAAAABgVKkJtEqxHOfRj0Bv4F0u6FsJjVwTLWKogUVYiDT/KwAAAAAOgAAAAAIAACAAAAD4fO7DZoF6Yep8G9fO+oIhQxJJFPdaUS9/ZVOLUi60aZAAAAAksAgg3NTjM3ctJG2t41vj4gh1SEresXtdT4DKXMyXs7Xg/23+HZN6lFZIRKyOL6J+A5c6v2eDUqS8T2yqg86Ek2j6PkY/L+iOPxq+60x4wlyq11Mq+cPaj0TwFlZlCevxRrUPb+8evA9kyX3rM4Rx2vU/vLfdfumSmyJaAS7/1/NbvsN8/4g5LTKjF+HxxNVAAAAAHNhQztZRX4R8zQfpTNDeLcesxhBvu49ax8k5DPfdZpGIYT+gzaVOgpWoBzbgFJ505LdQR1Q5eS59c/qyrrC8Rg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="ClientAndEmployeeExctraction.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="ImportingV7Editing.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="ImportingV8Editing.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
@@ -43,10 +43,10 @@
                 <SSIS:Property SSIS:Name="Name">ClientAndEmployeeExctraction</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">111</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">112</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{498A11C4-F0EC-48FB-98A6-66F72ACFC13E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{2D038135-AC5C-485C-9F69-269881A87C0D}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -79,7 +79,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Keown Naidoo\Desktop\Timesheet-Data3\Keown\April\April.xlsx;Extended Properties="Excel 12.0 XML;HDR=NO";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Keown Naidoo\Desktop\Timesheet-Data3\Keown\April\April.xlsx;Extended Properties="EXCEL 12.0 XML;HDR=NO";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -615,16 +615,16 @@
                 </SSIS:Parameter>
               </SSIS:Parameters>
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="ImportingV7Editing.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="ImportingV8Editing.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{8CD309A8-C0E4-44B5-97D4-0D5A50597040}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">ImportingV7Editing</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{01067395-7B07-4234-B03A-18EE8CB2997A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">ImportingV8Editing</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">188</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">201</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{3753593B-435E-4C6E-AF87-B209CC1C6F8A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B146817B-0387-479F-A2EE-D7AAE99F03DB}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1302,7 +1302,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=TimesheetDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Importing-{9EC2FD97-D748-4C16-AD33-EB53BC02B428}LocalHost.TimesheetDB;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=TimesheetDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Importing-{07588CBB-3F06-40DD-B870-EB25196118A8}LocalHost.TimesheetDB;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>

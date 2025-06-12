@@ -10,6 +10,10 @@ SELECT *
    SELECT*
   FROM [dbo].[Leave]
 
+    SELECT*
+  FROM [dbo].[AuditLog]
+
+
   Truncate table [dbo].[AuditLog]
 Truncate table [dbo].[ErrorLog]
 Truncate table [dbo].[Timesheet]
