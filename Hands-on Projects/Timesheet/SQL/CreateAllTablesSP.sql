@@ -72,16 +72,15 @@ BEGIN
     );
 
     -- Create AuditLog table
-    CREATE TABLE [dbo].[AuditLog] (
-        [AuditID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-        [PackageID] NVARCHAR(50) NULL,
-        [PackageName] NVARCHAR(50) NULL,
-        [ExecutionStartTime] DATETIME NULL,
-        [MachineName] NVARCHAR(100) NULL,
-        [TaskName] NVARCHAR(100) NULL,
-        [UserName] NVARCHAR(100) NULL,
-        [FilePath] TEXT NULL,
-        [Timestamp] DATETIME DEFAULT GETDATE()
+    CREATE TABLE AuditLog (
+    [AuditID] INT PRIMARY KEY IDENTITY(1,1),
+	[FilePath] VARCHAR(1000),
+	[Month] NVARCHAR(1000),
+    [Type] NVARCHAR(225) NOT NULL,
+    [EmployeeID] INT,
+    [Task] NVARCHAR(MAX),
+	[Timestamp] DATETIME NULL DEFAULT GETDATE(),
+	CONSTRAINT FKAuditEmployee FOREIGN KEY (EmployeeID) REFERENCES Employee(ID)
     );
 END;
 GO
