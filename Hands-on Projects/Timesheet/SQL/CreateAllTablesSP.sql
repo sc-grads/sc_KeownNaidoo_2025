@@ -41,8 +41,8 @@ BEGIN
         [BillableOrNonBillable] NVARCHAR(20) NOT NULL,
         [Comments] NVARCHAR(MAX) NULL,
         [TotalHours] DECIMAL(5,2) NULL,
-        [StartTime] time NULL,
-        [EndTime] time NULL,
+        [StartTime] TIME(0) NULL,
+        [EndTime] TIME(0) NULL,
         CONSTRAINT UQ_Timesheet_UniqueEntry3 UNIQUE ([EmployeeID], [Date], [StartTime], [EndTime]),
         CONSTRAINT FK_Timesheet_Employee FOREIGN KEY ([EmployeeID]) REFERENCES [dbo].[Employee]([ID]),
         CONSTRAINT FK_Timesheet_Client FOREIGN KEY ([ClientID]) REFERENCES [dbo].[Client]([ClientID])
@@ -77,10 +77,9 @@ BEGIN
 	[FilePath] VARCHAR(1000),
 	[Month] NVARCHAR(1000),
     [Type] NVARCHAR(225) NOT NULL,
-    [EmployeeID] INT,
+    [EmployeeName] NVARCHAR(225) NOT NULL,
     [Task] NVARCHAR(MAX),
-	[Timestamp] DATETIME NULL DEFAULT GETDATE(),
-	CONSTRAINT FKAuditEmployee FOREIGN KEY (EmployeeID) REFERENCES Employee(ID)
+	[Timestamp] DATETIME NULL DEFAULT GETDATE()
     );
 END;
 GO
