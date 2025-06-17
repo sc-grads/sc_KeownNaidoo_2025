@@ -17,6 +17,11 @@ jobs:
       - name: Setup SSIS DevOps Tools
         uses: jonlabelle/setup-ssis-devops-tools@v1
 
+      # Debug: Verify SSIS package file exists
+      - name: Verify SSIS Package File
+        run: dir HandsOnProjects\Timesheet\SSIS\TimeSheet_Project
+        working-directory: ${{ github.workspace }}
+
       # Deploy database and table scripts
       - name: Deploy Database and Tables
         run: |
@@ -26,8 +31,9 @@ jobs:
 
       # Deploy SSIS package to SSIS Catalog
       - name: Deploy SSIS Package
+        shell: pwsh
         run: |
-          SSISDeploy.exe -s:HandsOnProjects/Timesheet/SSIS/TimeSheet_Project/ClientAndEmployeeExctraction.dtsx -d:catalog;/SSISDB/Timesheet/MyProject;"${{ secrets.SERVER }}" -a:SqlServerAuthentication;${{ secrets.DB_USER }};${{ secrets.DB_PASSWORD }}
+          SSISDeploy.exe -s:"HandsOnProjects/Timesheet/SSIS/TimeSheet_Project/ClientAndEmployeeExctraction.dtsx" -d:"catalog;/SSISDB/Timesheet/MyProject;${{ secrets.SERVER }}" -a:"SqlServerAuthentication;${{ secrets.DB_USER }};${{ secrets.DB_PASSWORD }}"
         working-directory: ${{ github.workspace }}
 
       # Create and configure SQL Server Agent Job
