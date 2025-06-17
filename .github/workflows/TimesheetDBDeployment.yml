@@ -1,0 +1,24 @@
+name: Deploy SQL Server Database, SSIS Packages, and Agent Job
+
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: windows-latest # Required for SSIS tools
+    environment: production
+
+    steps:
+      # Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Install SQL Server SSIS DevOps Tools
+      - name: Setup SSIS DevOps Tools
+        uses: jonlabelle/setup-ssis-devops-tools@v1
+
+      # Deploy database and table scripts
+      - name: Deploy Database and Tables
+        run: |
+          sqlcmd -S ${{ secrets.SQL_SERVER_NAME }} -U ${{ secrets.SQL_SERVER_USERNAME }} -P ${{ secrets.SQL_SERVER_PASSWORD }} -d master -i sql_scripts/CreateDatabase.sql
+          sqlcmd -S ${{ secrets.SQL_SERVER_NAME }} -U ${{ secrets.SQL_SERVER_USERNAME }} -P ${{ secrets.SQL_SERVER_PASSWORD }} -d YourDatabaseName -i sql_scripts/CreateTables.sql
+        working-directory: ${{ github.workspace }}
