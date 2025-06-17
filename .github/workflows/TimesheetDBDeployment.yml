@@ -33,7 +33,7 @@ jobs:
       - name: Deploy SSIS Package
         shell: pwsh
         run: |
-          SSISDeploy.exe -s:"HandsOnProjects/Timesheet/SSIS/TimeSheet_Project/ClientAndEmployeeExctraction.dtsx" -d:"catalog;/SSISDB/Timesheet/MyProject;${{ secrets.SERVER }}" -a:"SqlServerAuthentication;${{ secrets.DB_USER }};${{ secrets.DB_PASSWORD }}"
+          SSISDeploy.exe -s:"HandsOnProjects/Timesheet/SSIS/TimeSheet_Project/ClientAndEmployeeExtraction.dtsx" -d:"catalog;/SSISDB/Timesheet/MyProject;${{ secrets.SERVER }}" -a:SQL -u:${{ secrets.DB_USER }} -p:${{ secrets.DB_PASSWORD }}
         working-directory: ${{ github.workspace }}
 
       # Create and configure SQL Server Agent Job
