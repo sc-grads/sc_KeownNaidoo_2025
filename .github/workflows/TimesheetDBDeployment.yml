@@ -33,7 +33,7 @@ jobs:
       - name: Deploy SSIS Package
         shell: pwsh
         run: |
-          SSISDeploy.exe -s:"HandsOnProjects/Timesheet/SSIS/TimeSheet_Project/bin/Development/TimeSheet_Project.ispac" `-d:"catalog;/SSISDB/Timesheet/MyProject;${{ secrets.SERVER }}" -at:SQL -i
+          SSISDeploy.exe -s:"HandsOnProjects/Timesheet/SSIS/TimeSheet_Project/bin/Development/TimeSheet_Project.ispac" `-d:"catalog;/SSISDB/Timesheet/MyProject;${{ secrets.SERVER }}" -at:WIN
         working-directory: ${{ github.workspace }}
 
       # Create and configure SQL Server Agent Job
