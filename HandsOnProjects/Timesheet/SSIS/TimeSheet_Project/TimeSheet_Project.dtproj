@@ -12,7 +12,7 @@
   <DataSourceViews />
   <DeploymentModelSpecificContent>
     <Manifest>
-      <SSIS:Project SSIS:ProtectionLevel="DontSaveSensitive" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
+      <SSIS:Project SSIS:ProtectionLevel="EncryptSensitiveWithUserKey" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
         <SSIS:Properties>
           <SSIS:Property SSIS:Name="ID">{dae7e7ad-5afd-455c-8ea4-d2c5d7daf7f4}</SSIS:Property>
           <SSIS:Property SSIS:Name="Name">TimeSheet_Project</SSIS:Property>
@@ -26,6 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">SAMBE2025006</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAWTbmRTJpSE2Zy7lEObUSYAAAAAACAAAAAAAQZgAAAAEAACAAAABSUTwXQsurtTeYPU5JkAlJw8M2Icn8gsUI7JXJZb3fpQAAAAAOgAAAAAIAACAAAADAkq57HU9OwvJremWyB531uIx/0kvSzzhsMH+8SFEyUpAAAAAXz/r22fXP6OMahHQ4kUSlBeKAu09caePFu6DIAVp2/5qHkzVn9utWLnY9b9mApSFj1GD11WsP4/7ejWJ4xXnDJlA4/iuiS/1dcHSQvj4Rp6IKIUvt5nEoZ3sR3PWG9x1w2MZST/i0mrCG5MMu5ONwx/yG/cE5mFUZY2JNJ4foeBhDvtwG7HomR7PQdPryUh9AAAAAG6kaz8xCrqJDzW6NlqsZExwKUc7FhRvvV+wiIWnS5mlke+nWT8jH9ScXcWYefozlsjlFY9tmeSRasghmfZ/PiA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
