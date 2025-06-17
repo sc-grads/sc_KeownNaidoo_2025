@@ -19,6 +19,6 @@ jobs:
       # Deploy database and table scripts
       - name: Deploy Database and Tables
         run: |
-          sqlcmd -S ${{ secrets.SQL_SERVER_NAME }} -U ${{ secrets.SQL_SERVER_USERNAME }} -P ${{ secrets.SQL_SERVER_PASSWORD }} -d master -i sql_scripts/CreateDatabase.sql
-          sqlcmd -S ${{ secrets.SQL_SERVER_NAME }} -U ${{ secrets.SQL_SERVER_USERNAME }} -P ${{ secrets.SQL_SERVER_PASSWORD }} -d YourDatabaseName -i sql_scripts/CreateTables.sql
+          sqlcmd -S ${{ secrets.SQL_SERVER_NAME }} -U ${{ secrets.SQL_SERVER_USERNAME }} -P ${{ secrets.SQL_SERVER_PASSWORD }} -d master -i Hands-on Projects/Timesheet/SQL/CreateDatabase.sql
+          sqlcmd -S ${{ secrets.SQL_SERVER_NAME }} -U ${{ secrets.SQL_SERVER_USERNAME }} -P ${{ secrets.SQL_SERVER_PASSWORD }} -d YourDatabaseName -i Hands-on Projects/Timesheet/SQL/CreateAllTablesSP.sql
         working-directory: ${{ github.workspace }}
