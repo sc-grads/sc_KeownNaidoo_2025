@@ -83,5 +83,5 @@ BEGIN
     );
 END;
 GO
-
 EXEC CreateAllTables;
+
