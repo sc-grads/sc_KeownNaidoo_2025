@@ -32,7 +32,7 @@
 .vs/
 
 # Build results
-[Bb]in/
+#[Bb]in/
 [Oo]bj/
 *.exe
 *.dll
