@@ -29,15 +29,3 @@ jobs:
           sqlcmd -S "${{ secrets.SERVER }}" -U ${{ secrets.DB_USER }} -P ${{ secrets.DB_PASSWORD }} -d TimesheetDB -i HandsOnProjects/Timesheet/SQL/CreateAllTablesSP.sql
         working-directory: ${{ github.workspace }}
 
-      # Deploy SSIS package to SSIS Catalog
-      - name: Deploy SSIS Package
-        shell: pwsh
-        run: |
-          SSISDeploy.exe -s:"HandsOnProjects/Timesheet/SSIS/TimeSheet_Project/bin/Development/TimeSheet_Project.ispac" -d:"catalog;/SSISDB/Timesheet/MyProject;${{ secrets.SERVER }}" -at:SQL -u:${{ secrets.DB_USER }} -p:${{ secrets.DB_PASSWORD }}
-        working-directory: ${{ github.workspace }}
-
-      # Create and configure SQL Server Agent Job
-      - name: Create SQL Server Agent Job
-        run: |
-          sqlcmd -S "${{ secrets.SERVER }}" -U ${{ secrets.DB_USER }} -P ${{ secrets.DB_PASSWORD }} -d msdb -i HandsOnProjects/Timesheet/SQL/JobSchedule.sql
-        working-directory: ${{ github.workspace }}
