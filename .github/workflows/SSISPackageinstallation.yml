@@ -17,16 +17,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Verify SSISDeploy is accessible
-        shell: cmd
-        run: |
-          where SSISDeploy
-          if %ERRORLEVEL% neq 0 (
-            echo SSISDeploy not found in PATH. Ensure it is installed and added to PATH.
-            exit /b 1
-          )
-        working-directory: ${{ github.workspace }}
-
       - name: Create SSIS Catalog Folder
         shell: cmd
         run: |
@@ -40,7 +30,7 @@ jobs:
       - name: Deploy SSIS Package
         shell: cmd
         run: |
-          "C:\Program Files (x86)\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\SSIS\SSISDeploy.exe" -s HandsOnProjects\Timesheet\SSIS\TimeSheet_Project\ImportingV8Editing.dtsx -d "catalog;/SSISDB/Timesheet/TimeSheet_Project" -cs "Server=%SERVER%;User ID=%DB_USER%;Password=%DB_PASSWORD%;" -v
+          "C:\SSIS_Tools\SSISDeploy.exe" -s HandsOnProjects\Timesheet\SSIS\TimeSheet_Project\ImportingV8Editing.dtsx -d "catalog;/SSISDB/Timesheet/TimeSheet_Project" -authType:WIN 
         working-directory: ${{ github.workspace }}
         env:
           SERVER: ${{ secrets.SERVER }}
