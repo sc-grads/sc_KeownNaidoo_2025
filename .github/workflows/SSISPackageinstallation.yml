@@ -20,7 +20,7 @@ jobs:
       - name: Create SSIS Catalog Folder
         shell: cmd
         run: |
-          sqlcmd -S "%SERVER%" -U %DB_USER% -P "%DB_PASSWORD%" -d SSISDB -Q "IF NOT EXISTS (SELECT 1 FROM [SSISDB].[catalog].[folders] WHERE name = N'Timesheet') EXEC [SSISDB].[catalog].[create_folder] @folder_name = N'Timesheet'" -b -m 1 -r 1 -t 30
+          sqlcmd -authType:WIN -d SSISDB -Q "IF NOT EXISTS (SELECT 1 FROM [SSISDB].[catalog].[folders] WHERE name = N'Timesheet') EXEC [SSISDB].[catalog].[create_folder] @folder_name = N'Timesheet'" -b -m 1 -r 1 -t 30
         working-directory: ${{ github.workspace }}
         env:
           SERVER: ${{ secrets.SERVER }}
@@ -32,7 +32,4 @@ jobs:
         run: |
           "C:\SSIS_Tools\SSISDeploy.exe" -s HandsOnProjects\Timesheet\SSIS\TimeSheet_Project\ImportingV8Editing.dtsx -d "catalog;/SSISDB/Timesheet/TimeSheet_Project" -authType:WIN 
         working-directory: ${{ github.workspace }}
-        env:
-          SERVER: ${{ secrets.SERVER }}
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  
