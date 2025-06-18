@@ -1,0 +1,30 @@
+name: Install SSIS Package
+
+on:
+  workflow_dispatch:
+
+jobs:
+  install-ssis:
+    runs-on: self-hosted # Use self-hosted runner
+    environment: production
+
+    steps:
+      # Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Install SQL Server SSIS DevOps Tools
+      - name: Setup SSIS DevOps Tools
+        uses: jonlabelle/setup-ssis-devops-tools@v1
+
+      # Create SSIS catalog folder
+      - name: Create SSIS Catalog Folder
+        run: |
+          sqlcmd -S "${{ secrets.SERVER }}" -U ${{ secrets.DB_USER }} -P ${{ secrets.DB_PASSWORD }} -d SSISDB -Q "IF NOT EXISTS (SELECT 1 FROM [SSISDB].[catalog].[folders] WHERE name = N'Timesheet') EXEC [SSISDB].[catalog].[create_folder] @folder_name = N'Timesheet'"
+        working-directory: ${{ github.workspace }}
+
+      # Deploy SSIS package
+      - name: Deploy SSIS Package
+        run: |
+          SSISDeploy -s HandsOnProjects/Timesheet/SSIS/TimeSheet_Project/ImportingV8Editing.dtsx -d "catalog;/SSISDB/Timesheet/TimeSheet_Project" -cs "Server=${{ secrets.SERVER }};User ID=${{ secrets.DB_USER }};Password=${{ secrets.DB_PASSWORD }};"
+        working-directory: ${{ github.workspace }}
