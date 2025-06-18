@@ -28,8 +28,8 @@ jobs:
         run: |
           dir "${{ github.workspace }}\HandsOnProjects\Timesheet\SSIS\TimeSheet_Project\bin\Development\TimeSheet_Project.ispac"
 
-      - name: Deploy SSIS Package (ISPAC)
+      - name: Deploy SSIS Package
         shell: cmd
         run: |
-          "C:\SSIS_Tools\SSISDeploy.exe" -s:"C:\Users\Keown Naidoo\actions-runner\_work\sc_KeownNaidoo_2025\sc_KeownNaidoo_2025\HandsOnProjects\Timesheet\SSIS\TimeSheet_Project\bin\Development\TimeSheet_Project.ispac" -d:"catalog;/SSISDB/Timesheet/TimeSheet_Project" -css:"Server=SAMBE2025006;Integrated Security=SSPI;" -at:win -v
-          working-directory: ${{ github.workspace }}
+          "C:\SSIS_Tools\SSISDeploy.exe" -s:"${{ github.workspace }}\HandsOnProjects\Timesheet\SSIS\TimeSheet_Project\bin\Development\TimeSheet_Project.ispac" -d:"catalog;/SSISDB/Timesheet/TimeSheet_Project;SAMBE2025006" -at:win -v
+        working-directory: ${{ github.workspace }}
