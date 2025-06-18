@@ -21,6 +21,7 @@ jobs:
         working-directory: ${{ github.workspace }}
 
   Install-ssis:
+    needs: Deploy-DB
     runs-on: self-hosted
     environment: production
 
@@ -48,6 +49,7 @@ jobs:
         working-directory: ${{ github.workspace }}
 
   JobDeploy:
+    needs: Install-ssis
     runs-on: windows-latest # Required for SSIS tools
     environment: production
 
