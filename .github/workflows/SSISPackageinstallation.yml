@@ -26,5 +26,4 @@ jobs:
       - name: Deploy SSIS Package
         shell: cmd
         run: |
-              "C:\SSIS_Tools\SSISDeploy.exe" -s HandsOnProjects\Timesheet\SSIS\TimeSheet_Project/ImportingV8Editing.dtsx -d "catalog;/SSISDB/Timesheet/TimeSheet_Project" -cs "Server=SAMBE2025006;Integrated Security=SSPI;" -at:win -v
-      
+            "C:\SSIS_Tools\SSISDeploy.exe" -s "${{ github.workspace }}\HandsOnProjects\Timesheet\SSIS\TimeSheet_Project\ImportingV8Editing.dtsx" -d "catalog;/SSISDB/Timesheet/TimeSheet_Project" -cs "Server=SAMBE2025006;Integrated Security=SSPI;" -at:win -v
