@@ -56,14 +56,13 @@ BEGIN
         [StartDate] DATE NULL,
         [EndDate] DATE NULL,
         [NumberOfDays] INT NULL,
-        [ApprovalObtained] NVARCHAR(50) NULL,
-        [SickNote] NVARCHAR(50) NULL,
+        [ApprovalObtained] NVARCHAR(50) NULL DEFAULT 'N/A',
+        [SickNote] NVARCHAR(50) NULL DEFAULT 'N/A',
         CONSTRAINT UC_Leave UNIQUE ([EmployeeID], [TypeOfLeave], [StartDate], [EndDate]),
 		CONSTRAINT FK_Leave_Employee FOREIGN KEY ([EmployeeID]) REFERENCES [dbo].[Employee]([ID]),
     );
 
-
-    -- Create ErrorLog table
+	    -- Create ErrorLog table
     CREATE TABLE ErrorLog (
         ErrorID INT PRIMARY KEY IDENTITY(1,1),
         FilePath NVARCHAR(255),
