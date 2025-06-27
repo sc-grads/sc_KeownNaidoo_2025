@@ -1,4 +1,5 @@
-stores ={}
+from flask import sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
 
-items={
-}
+db = SQLAlchemy()
+
