@@ -11,8 +11,8 @@
   DTS:LocaleID="7177"
   DTS:ObjectName="ClientAndEmployeeExctraction"
   DTS:PackageType="5"
-  DTS:VersionBuild="112"
-  DTS:VersionGUID="{2D038135-AC5C-485C-9F69-269881A87C0D}">
+  DTS:VersionBuild="113"
+  DTS:VersionGUID="{64E57B35-3A5E-4F4D-B36A-DCE0911C9AE5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,6 +26,18 @@
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
           DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Keown Naidoo\Desktop\Timesheet-Data3\Keown\April\April.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{5183C59B-CA63-4084-BF04-F9FD22EA07B4}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Keown Naidoo\Desktop\Timesheet-Data3\Keown\April\April.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=NO&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -433,8 +445,8 @@
               <connections>
                 <connection
                   refId="Package\Loading Employees and Clients\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1283,22 +1295,6 @@ where [refTable].[EmployeeName] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\Loading Employees and Clients\Conditional Split"
-          TopLeft="514.999971861642,345.222219821589" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\Loading Employees and Clients\Inserting to Employee Table"
-          TopLeft="492.499973090988,526.355551895345" />
-        <NodeLayout
-          Size="120.8,41.6"
-          Id="Package\Loading Employees and Clients\Lookup 1"
-          TopLeft="525.833304603068,437.666663623187" />
-        <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\Loading Employees and Clients\Inserting to Client table"
-          TopLeft="88.3333285070132,472.622218935666" />
-        <NodeLayout
           Size="162.4,41.6"
           Id="Package\Loading Employees and Clients\Conditional Split 1"
           TopLeft="100.833327824043,287.733331332472" />
@@ -1315,9 +1311,25 @@ where [refTable].[EmployeeName] = ?</property>
           Id="Package\Loading Employees and Clients\Derived Column"
           TopLeft="337.962944497482,63.5555551135981" />
         <NodeLayout
+          Size="120.8,41.6"
+          Id="Package\Loading Employees and Clients\Lookup 1"
+          TopLeft="525.833304603068,437.666663623187" />
+        <NodeLayout
           Size="140,41.6"
           Id="Package\Loading Employees and Clients\Excel Source"
           TopLeft="340.277759185821,1.7333333212799" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Loading Employees and Clients\Inserting to Client table"
+          TopLeft="88.3333285070132,472.622218935666" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Loading Employees and Clients\Conditional Split"
+          TopLeft="514.999971861642,345.222219821589" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\Loading Employees and Clients\Inserting to Employee Table"
+          TopLeft="492.499973090988,526.355551895345" />
         <EdgeLayout
           Id="Package\Loading Employees and Clients.Paths[Multicast Output 3]"
           TopLeft="411.466648454137,303.622220400152">
@@ -1481,6 +1493,40 @@ where [refTable].[EmployeeName] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Loading Employees and Clients.Paths[Derived Column Output]"
+          TopLeft="414.362944497482,105.155555113598">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.429629376678,156.866665286554"
+              Start="0,0"
+              End="-21.429629376678,149.366665286554">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.4333326432769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,74.4333326432769"
+                    Point2="0,78.4333326432769"
+                    Point3="-4,78.4333326432769" />
+                  <mssgle:LineSegment
+                    End="-17.429629376678,78.4333326432769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.429629376678,78.4333326432769"
+                    Point2="-21.429629376678,78.4333326432769"
+                    Point3="-21.429629376678,82.4333326432769" />
+                  <mssgle:LineSegment
+                    End="-21.429629376678,149.366665286554" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Loading Employees and Clients.Paths[Case 11]"
           TopLeft="181.716660497172,329.333331332472">
           <EdgeLayout.Curve>
@@ -1528,53 +1574,29 @@ where [refTable].[EmployeeName] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Loading Employees and Clients.Paths[Derived Column Output]"
-          TopLeft="414.362944497482,105.155555113598">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-21.429629376678,156.866665286554"
-              Start="0,0"
-              End="-21.429629376678,149.366665286554">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,74.4333326432769" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,74.4333326432769"
-                    Point2="0,78.4333326432769"
-                    Point3="-4,78.4333326432769" />
-                  <mssgle:LineSegment
-                    End="-17.429629376678,78.4333326432769" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-17.429629376678,78.4333326432769"
-                    Point2="-21.429629376678,78.4333326432769"
-                    Point3="-21.429629376678,82.4333326432769" />
-                  <mssgle:LineSegment
-                    End="-21.429629376678,149.366665286554" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Loading Employees and Clients\Inserting to Employee Table">
+    design-time-name="Package\Loading Employees and Clients\Lookup">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Client]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1602,6 +1624,19 @@ where [refTable].[EmployeeName] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Loading Employees and Clients\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Loading Employees and Clients\Inserting to Client table">
     <Properties>
       <Property>
@@ -1615,30 +1650,7 @@ where [refTable].[EmployeeName] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Loading Employees and Clients\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Client]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Loading Employees and Clients\Excel Source">
+    design-time-name="Package\Loading Employees and Clients\Inserting to Employee Table">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
