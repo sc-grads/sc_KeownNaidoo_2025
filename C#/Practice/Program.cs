@@ -1,49 +1,72 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿int month = 1;
+string mname;
 
-int num1 = 5;
-int num2 = 6;
+switch (month)
+{
+    case 1:
+        mname = "Jan";
+        break;  
+    case 2: mname = "Feb";
+        break;
 
-// relational operator  <  <=  >  >=
-// 
-bool isGreater = num1 > num2;
+    case 3: mname = "Mar";
+        break;
 
-int age = 18;
+    default:mname = "None";
+        break;
+}
 
-if (age >= 18)
+
+//Console.WriteLine("How old are you? Write a whole number");
+//int age = int.Parse(Console.ReadLine());
+//bool isWithParents = false;
+
+//if (age >= 18)
+//{
+//    Console.WriteLine("Go party in the club!");
+//}
+//else if (age >= 13)
+//{
+//    Console.WriteLine("Are you with your parents? Answer with y or n");
+//    string isWithParentsString = Console.ReadLine();
+//    if (isWithParentsString == "y")
+//    {
+//        Console.WriteLine("Go party in the club with your parents!");
+//    }
+//    else
+//    {
+//        Console.WriteLine("No party for you today");
+//    }
+
+//}
+//else
+//{
+//    Console.WriteLine("Go party in Kindergarten!");
+//}
+
+Console.ReadKey();
+
+/*
+
+int age = 16;
+bool isWithParents = true;
+
+if(age >= 13 && isWithParents)
+{
+    Console.WriteLine("Go party in the club with your parents!");
+}else if (age > 18)
 {
     Console.WriteLine("Go party in the club!");
 }
-
-
-
-
-
-
-
-bool isRainy = true;
-bool hasUmbrella = false;
-
-// Logical Operators
-// AND &&
-// OR  ||
-// NOT !
-
-// Variants of OR statements
-// true || true -> true
-// true || false -> true
-// false|| true -> true
-// false|| false -> false
-
-// Variants of the AND operator/statements
-// true  && true -> true
-// true  && false -> false
-// false && true -> false
-// false && false -> false
-
-
-if (isRainy && !hasUmbrella)
+else
 {
-    //Console.WriteLine("I'M getting wet!");
+    Console.WriteLine("Go party in Kindergarten!");
 }
-Console.WriteLine("Ay OK!");
+
+*/
+
 Console.ReadKey();
+
+
+
+
