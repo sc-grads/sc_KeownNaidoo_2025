@@ -1,27 +1,19 @@
 ﻿
-string myName = "Denis";
+Console.WriteLine("Enter the first Number:");
 
-// defining or setting up a variable
-string petsName;
+double num1 = double.Parse(Console.ReadLine());
 
-// initialize variable
-petsName = "Daisy";
-Console.WriteLine($"my pet is {petsName}");
+Console.WriteLine("Enter the second number :");
 
-// assign a new value
-petsName = "Barky";
-Console.WriteLine($"my pet is {petsName}");
+double num2 = double.Parse(Console.ReadLine());
+
+double total = num1 + num2;
+total = Math.Round(total,2);
+
+//Console.WriteLine("The sum is " + total);
+
+//Console.WriteLine($"The sum is  {total}");
+
+Console.WriteLine("The sum is  {0}", total);
 
 Console.ReadKey();
-
-// Value Types
-int myAge = 35;
-//double pi = -3.14;
-
-byte age = 255;
-
-short linkdinConnections = 32550;
-
-long phoneNumber = 017657723991;
-
-float pi = 3.14f;
