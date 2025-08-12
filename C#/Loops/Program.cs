@@ -13,18 +13,32 @@ Console.WriteLine("Hello, World!");
 //    Thread.Sleep(1000);
 //}
 
-Console.WriteLine("Enter go or stay");
+//Console.WriteLine("Enter go or stay");
 
-string userChoice = Console.ReadLine();
+//string userChoice = Console.ReadLine();
 
-while (userChoice == "go")
+//while (userChoice == "go")
+//{
+//    Console.WriteLine("Go for a mile");
+//    Console.WriteLine("Wanna keep going? Enter go.");
+//    userChoice = Console.ReadLine();
+//}
+//Console.WriteLine("Finally you are staying!");
+
+int number;
+
+// do-while loop is a post-test loop
+
+do
 {
-    Console.WriteLine("Go for a mile");
-    Console.WriteLine("Wanna keep going? Enter go.");
-    userChoice = Console.ReadLine();
-}
-Console.WriteLine("Finally you are staying!");
-
+    Console.WriteLine("Enter a positive whole number");
+    number = int.Parse(Console.ReadLine());
+} while (number <= 0);
+Console.WriteLine("Finally!!!");
 
 
 Console.ReadKey();
+
+
+
+
