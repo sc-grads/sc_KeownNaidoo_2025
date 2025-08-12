@@ -25,16 +25,30 @@ Console.WriteLine("Hello, World!");
 //}
 //Console.WriteLine("Finally you are staying!");
 
-int number;
+//int number;
 
 // do-while loop is a post-test loop
 
-do
+//do
+//{
+//    Console.WriteLine("Enter a positive whole number");
+//    number = int.Parse(Console.ReadLine());
+//} while (number <= 0);
+//Console.WriteLine("Finally!!!");
+
+string[] weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+Console.WriteLine("Lenght of the weekdays Array is: " + weekDays.Length);
+
+//for (int i = 0; i < weekDays.Length; i++)
+//{
+//    Console.WriteLine(weekDays[i]);
+//}
+
+foreach (string day in weekDays)
 {
-    Console.WriteLine("Enter a positive whole number");
-    number = int.Parse(Console.ReadLine());
-} while (number <= 0);
-Console.WriteLine("Finally!!!");
+    Console.WriteLine(day);
+}
 
 
 Console.ReadKey();
