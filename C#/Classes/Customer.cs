@@ -12,8 +12,7 @@ namespace ClassesApp
         public string Address { get; set; }
         public string ContactNumber { get; set; }
 
-       
-
+        // Default Constructor
         public Customer()
         {
             Name = "New Customer";
@@ -22,7 +21,7 @@ namespace ClassesApp
         }
 
 
-
+        // Custom Constructor
         public Customer(string name, string address, string contactNumber)
         {
             Name = name;
@@ -34,6 +33,15 @@ namespace ClassesApp
         {
             Name = name;
         }
+
+        public void SetDetails(string name, string address, string contactNumber)
+        {
+            Name = name;
+            Address = address;
+            ContactNumber = contactNumber;
+
+        }
+
 
     }
 }

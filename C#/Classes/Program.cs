@@ -7,22 +7,20 @@ namespace Classes
        
         static void Main(string[] args)
         {
+
             Customer earl = new Customer("Earl");
-
-            Customer frankTheTank = new Customer("FrankTheTank", "Mainstreet 1", "5551234567");
-
-            Console.WriteLine("Name of Customer is " + earl.Name);
-
+            Customer frankTheTank = new Customer("Frank", "Mainstreet", "55537");
+            
             Customer myCustomer = new Customer();
 
-            Console.WriteLine("Please enter the customers Name");
+            myCustomer.SetDetails("Frank", "Mainstreet 2", "51312");
 
-            myCustomer.Name = Console.ReadLine();
+            Console.WriteLine("MyCustomer is: " + myCustomer.Name + " and he lives in " + myCustomer.Address );
 
-            Console.WriteLine("Details about customer: " + myCustomer.Name);
-
+            Console.WriteLine("earl is: " + earl.Name + " and he lives in " + earl.Address);
 
             Console.ReadKey();
         }
+    }
     }
 }
