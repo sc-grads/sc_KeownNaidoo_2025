@@ -2,10 +2,9 @@
 {
     internal class Program
     {
+        static int myResult;
         static void Main(string[] args)
         {
-
-            int myResult;
 
             Console.WriteLine("Enter a number, I'll add 10 to it!");
             int num1 = int.Parse(Console.ReadLine());
