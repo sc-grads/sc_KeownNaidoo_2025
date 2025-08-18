@@ -9,7 +9,6 @@
     {
         public void Log(string message)
         {
-            // The @ sign in C# is used to denote a verbatim string literal
             string directoryPath = @"C:\Logs";
             string filePath = Path.Combine(directoryPath, "log.txt");
 
@@ -27,7 +26,6 @@
     {
         public void Log(string message)
         {
-            // Implement the logic to log a message to a database
             Console.WriteLine($"Logging to database. {message}");
         }
     }
@@ -43,18 +41,11 @@
         public void DoWork()
         {
             _logger.Log("Work started");
-            // DO ALL THE WORK!
             _logger.Log("WORK DONE!");
         }
     }
 
-    /*
-     Decoupling: The Application class depends on the 
-    ILogger interface rather than specific implementations 
-    like FileLogger or DatabaseLogger. 
-    This means you can easily switch the logging mechanism 
-    without changing the Application class. 
-    */
+    
 
 
     internal class Program
