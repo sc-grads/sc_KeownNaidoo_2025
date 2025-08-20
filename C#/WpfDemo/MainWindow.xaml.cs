@@ -19,6 +19,12 @@ namespace WpfDemo
         public MainWindow()
         {
             InitializeComponent();
+
+            Button btnMy = new Button();
+
+            btnMy.Content = "B";
+
+            Grid.SetRow(btnMy, 3);
         }
     }
 }
