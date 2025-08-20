@@ -25,6 +25,12 @@ namespace WpfDemo
             btnMy.Content = "B";
 
             Grid.SetRow(btnMy, 3);
+            Grid.SetColumn(btnMy, 4);
+
+            Grid myGrid = (Grid)FindName("myGrid");
+            myGrid.Children.Add(btnMy);
+
+
         }
     }
 }
