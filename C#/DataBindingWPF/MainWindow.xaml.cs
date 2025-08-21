@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using DataBindingWPF.Data;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,23 +10,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfDemo
+namespace DataBindingWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        Person p = new Person {
+            
+            Age =30 ,
+            Name = "Kev"
+
+        };
+
         public MainWindow()
         {
             InitializeComponent();
-
-
+            this.DataContext = p;
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello World");
+            MessageBox.Show("Hello World" + p.Name);
         }
     }
 }

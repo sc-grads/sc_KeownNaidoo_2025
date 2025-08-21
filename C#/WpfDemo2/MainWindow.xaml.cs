@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfDemo
+namespace WpfDemo2
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -19,13 +19,8 @@ namespace WpfDemo
         public MainWindow()
         {
             InitializeComponent();
+            MainContent.Content= new LoginView();
 
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Hello World");
         }
     }
 }

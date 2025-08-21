@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfDemo
+namespace ToDoApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -19,13 +19,26 @@ namespace WpfDemo
         public MainWindow()
         {
             InitializeComponent();
-
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello World");
+            string text = todo.Text;
+
+            if (!string.IsNullOrEmpty(text)) { 
+                
+                TextBlock tb = new TextBlock { 
+                    Text = text,
+                    Margin = new Thickness(10)
+                
+                };
+                todoList.Children.Add(tb);
+                todo.Clear();            
+            
+            }
+
+
+
         }
     }
 }
