@@ -25,7 +25,7 @@ namespace ZooAPP2
         {
             InitializeComponent();
 
-            string conn = ConfigurationManager.ConnectionStrings["ZooAPP2.Properties.Settings.VsDBConnectionString"].ConnectionString;//VsDBConnectionString
+            string conn = ConfigurationManager.ConnectionStrings["ZooAPP2.Properties.Settings.VsDBConnectionString"].ConnectionString;//VsDBConnectionString\\
         }
     }
 }
