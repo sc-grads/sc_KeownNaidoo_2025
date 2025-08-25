@@ -159,6 +159,22 @@ namespace Currency_converter
             // Add Library using System.Text.RegularExpressions;
             //Regex regex = new Regex("^[0-9]+");
             //e.Handled = regex.IsMatch(e.Text);
+            Regex regex = new Regex("^[0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+            if (e.Handled)
+            {
+                // If the input is valid, allow it
+                txtCurrency.Text += e.Text;
+            }
+            else
+            {
+                // If the input is invalid, show a message
+                MessageBox.Show("Please enter a valid number", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
+                txtCurrency.Focus();
+                txtCurrency.Text = "";
+                ClearControls();
+
+            }
         }
         #endregion
     }
