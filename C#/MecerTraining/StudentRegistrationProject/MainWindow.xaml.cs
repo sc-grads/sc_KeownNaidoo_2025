@@ -24,5 +24,21 @@ namespace StudentRegistrationProject
         {
             InitializeComponent();
         }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            ConnectToDB connectToDB = new ConnectToDB();
+            connectToDB.RegisterStudent(Convert.ToInt32(txtStudentID.Text), txtFname.Text, txtSurname.Text, txtAddress.Text, txtCity.Text, txtNumber.Text);
+            MessageBox.Show("Student Registered Successfully");
+
+            txtStudentID.Clear();
+            txtFname.Clear();
+            txtSurname.Clear();
+            txtAddress.Clear();
+            txtCity.Clear();
+            txtNumber.Clear();
+
+
+        }
     }
 }
