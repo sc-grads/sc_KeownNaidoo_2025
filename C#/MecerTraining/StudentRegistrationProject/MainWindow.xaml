@@ -22,13 +22,14 @@
         <Label Content="Address" HorizontalAlignment="Left" Margin="55,217,0,0" RenderTransformOrigin="0.716,2.928" FontSize="20" VerticalAlignment="Top"/>
         <Label Content="City" HorizontalAlignment="Left" Margin="92,278,0,0" RenderTransformOrigin="0.716,2.928" FontSize="20" VerticalAlignment="Top"/>
         <Label Content="Number" HorizontalAlignment="Left" Margin="53,320,0,0" RenderTransformOrigin="0.716,2.928" FontSize="20" VerticalAlignment="Top"/>
-        <Button Click="btnRegister_Click" x:Name="btnRegister" Content="Register" HorizontalAlignment="Left" Margin="669,390,0,0" VerticalAlignment="Top" Height="34" Width="93" FontSize="18"/>
+        <Button Click="btnDelete_Click" x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="669,390,0,0" VerticalAlignment="Top" Height="34" Width="93" FontSize="18"/>
         <TextBox x:Name="txtStudentID" HorizontalAlignment="Left" Margin="281,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" Height="36"/>
         <TextBox x:Name="txtFname" HorizontalAlignment="Left" Margin="281,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" Height="36"/>
         <TextBox x:Name="txtSurname" HorizontalAlignment="Left" Margin="281,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" Height="36"/>
         <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="281,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" Height="36"/>
         <TextBox x:Name="txtCity" HorizontalAlignment="Left" Margin="281,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" Height="36"/>
         <TextBox x:Name="txtNumber" HorizontalAlignment="Left" Margin="281,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" Height="36"/>
+        <Button Click="btnRegister_Click" x:Name="btnRegister_Copy" Content="Register" HorizontalAlignment="Left" Margin="555,390,0,0" VerticalAlignment="Top" Height="34" Width="93" FontSize="18"/>
 
     </Grid>
 </Window>

@@ -40,5 +40,19 @@ namespace StudentRegistrationProject
 
 
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            ConnectToDB connectToDB = new ConnectToDB();
+            connectToDB.DeleteStudent(Convert.ToInt32(txtStudentID.Text));
+            MessageBox.Show("Student Deleted Successfully");
+            txtStudentID.Clear();
+            txtFname.Clear();
+            txtSurname.Clear();
+            txtAddress.Clear();
+            txtCity.Clear();
+            txtNumber.Clear();
+
+        }
     }
 }

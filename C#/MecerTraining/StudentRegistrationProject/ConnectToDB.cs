@@ -31,8 +31,19 @@ namespace StudentRegistrationProject
 
         }
 
-
+        public void DeleteStudent(int StudentID)
+        {
+            conn.Open();
+            cmd = new SqlCommand(
+                string.Format("DELETE FROM StudentRegs WHERE StudentID = '{0}'", StudentID),
+                conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            cmd.Dispose();
         }
 
+
     }
+
+}
 
