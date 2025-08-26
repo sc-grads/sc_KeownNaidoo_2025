@@ -16,8 +16,9 @@ namespace StudentRegistrationProject
         SqlCommand cmd = new SqlCommand();
         SqlDataReader sqlDataReader;
         DataRow dataRow;
+        public DataTable dataTable;
 
-        
+
 
         public void RegisterStudent(int StudentID, string name, string lname, string address, string city, string number)
         {
@@ -41,6 +42,46 @@ namespace StudentRegistrationProject
             conn.Close();
             cmd.Dispose();
         }
+
+        public void UpdateStudent(int StudentID, string name, string lname, string address, string city, string number)
+        {
+            conn.Open();
+            cmd = new SqlCommand(
+                string.Format("UPDATE StudentRegs SET Name = '{1}', Surname = '{2}', Address = '{3}', City = '{4}', Cellphone = '{5}' WHERE StudentID = '{0}'", StudentID, name, lname, address, city, number),
+                conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            cmd.Dispose();
+        }
+
+        public void ViewStudent()
+        {
+            conn.Open();
+            cmd = new SqlCommand("SELECT * FROM StudentRegs", conn);
+            sqlDataReader = cmd.ExecuteReader();
+            dataTable = new DataTable();
+
+            for(int i = 0; i < sqlDataReader.FieldCount; i++)
+            {
+                dataTable.Columns.Add(sqlDataReader.GetName(i));
+            }
+
+            while (sqlDataReader.Read())
+            {
+                dataRow = dataTable.NewRow();
+                for(int i = 0; i < sqlDataReader.FieldCount; i++)
+                {
+                    dataRow[i] = sqlDataReader.GetValue(i);
+                }
+                dataTable.Rows.Add(dataRow);
+            }
+
+            conn.Close();
+            cmd.Dispose();
+            sqlDataReader.Close();
+        }
+
+
 
 
     }

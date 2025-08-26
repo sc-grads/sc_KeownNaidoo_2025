@@ -54,5 +54,25 @@ namespace StudentRegistrationProject
             txtNumber.Clear();
 
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            ConnectToDB connectToDB = new ConnectToDB();
+            connectToDB.UpdateStudent(Convert.ToInt32(txtStudentID.Text), txtFname.Text, txtSurname.Text, txtAddress.Text, txtCity.Text, txtNumber.Text);
+            MessageBox.Show("Student Updated Successfully");
+            txtStudentID.Clear();
+            txtFname.Clear();
+            txtSurname.Clear();
+            txtAddress.Clear();
+            txtCity.Clear();
+            txtNumber.Clear();
+
+        }
+
+        private void btnSelect_Click(object sender, RoutedEventArgs e)
+        {
+            StudentData sd = new StudentData();
+            sd.Show();
+        }
     }
 }
