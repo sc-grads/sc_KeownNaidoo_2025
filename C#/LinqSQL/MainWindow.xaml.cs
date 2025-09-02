@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace LinqSQL
 {
@@ -23,6 +24,10 @@ namespace LinqSQL
         public MainWindow()
         {
             InitializeComponent();
+            //VsDBConnectionString
+
+            string connectionString =  ConfigurationManager.ConnectionStrings["LinqSQL.Properties.Settings.VsDBConnectionString"].ConnectionString;
+
         }
     }
 }
