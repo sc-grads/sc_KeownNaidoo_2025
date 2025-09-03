@@ -29,7 +29,7 @@ namespace Generics
     //        return $"Box contains: {Content}";
     //    }
     //}
-    internal class Box<T, V>
+    internal class Box<T, V> where T :  class
     {
         public T first { get; set; }
         public V second { get; set; }
